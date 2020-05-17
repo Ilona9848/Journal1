@@ -39,10 +39,10 @@
             // 
             this.labelInstruction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelInstruction.AutoSize = true;
-            this.labelInstruction.Font = new System.Drawing.Font("Segoe Script", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstruction.Location = new System.Drawing.Point(179, 143);
+            this.labelInstruction.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInstruction.Location = new System.Drawing.Point(191, 142);
             this.labelInstruction.Name = "labelInstruction";
-            this.labelInstruction.Size = new System.Drawing.Size(370, 33);
+            this.labelInstruction.Size = new System.Drawing.Size(318, 23);
             this.labelInstruction.TabIndex = 1;
             this.labelInstruction.Text = "Введите название факультета.";
             this.labelInstruction.Click += new System.EventHandler(this.labelInstruction_Click);
@@ -51,19 +51,20 @@
             // 
             this.labelExample.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelExample.AutoSize = true;
-            this.labelExample.Font = new System.Drawing.Font("Segoe Script", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelExample.Location = new System.Drawing.Point(12, 198);
+            this.labelExample.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelExample.Location = new System.Drawing.Point(65, 194);
             this.labelExample.Name = "labelExample";
-            this.labelExample.Size = new System.Drawing.Size(798, 33);
+            this.labelExample.Size = new System.Drawing.Size(626, 23);
             this.labelExample.TabIndex = 2;
             this.labelExample.Text = "Пример: факультет математики и информационных технологий";
             this.labelExample.Click += new System.EventHandler(this.labelExample_Click);
             // 
             // textBoxFaculty
             // 
-            this.textBoxFaculty.Location = new System.Drawing.Point(161, 260);
+            this.textBoxFaculty.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxFaculty.Location = new System.Drawing.Point(173, 259);
             this.textBoxFaculty.Name = "textBoxFaculty";
-            this.textBoxFaculty.Size = new System.Drawing.Size(364, 26);
+            this.textBoxFaculty.Size = new System.Drawing.Size(364, 31);
             this.textBoxFaculty.TabIndex = 3;
             this.textBoxFaculty.TextChanged += new System.EventHandler(this.textBoxFaculty_TextChanged);
             // 
@@ -71,9 +72,9 @@
             // 
             this.buttonNext.BackColor = System.Drawing.Color.SlateBlue;
             this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonNext.Font = new System.Drawing.Font("Segoe Script", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonNext.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonNext.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonNext.Location = new System.Drawing.Point(712, 13);
+            this.buttonNext.Location = new System.Drawing.Point(724, 12);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(108, 40);
             this.buttonNext.TabIndex = 4;

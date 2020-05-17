@@ -45,6 +45,8 @@ namespace Journal1
             facultySelected = facultiesComboBox.SelectedValue.ToString();
             labelInstruction2.Show();
             textBoxGroup.Show();
+            labelInstr3.Hide();
+            buttonAddFaculty.Hide();
         }
 
 
@@ -73,8 +75,22 @@ namespace Journal1
             }
         }
 
-        private void facultiesBindingNavigator_RefreshItems(object sender, EventArgs e)
+        private void buttonAddFaculty_Click(object sender, EventArgs e)
         {
-                    }
+            AddFaculty addFaculty = new AddFaculty();
+            addFaculty.ShowDialog();
+            addFaculty.Close();
+            this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+            try
+            {
+                facultiesComboBox.SelectedIndex = -1;
+            }
+            catch { }
+        }
+
+        private void labelInstr3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

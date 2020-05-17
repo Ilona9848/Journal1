@@ -20,6 +20,7 @@ namespace Journal1
         int weekDaySelected;
         string connectionString = @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
         bool exist = true;
+        
         public class Groups
         {
             public string Id { get; set; }
@@ -28,6 +29,16 @@ namespace Journal1
             {
                 this.Id = id.ToString();
                 this.Group = Convert.ToInt32(group);
+            }
+        }
+        public class Subjects
+        {
+            public string Id { get; set; }
+            public string Subject { get; set; }
+            public Subjects(object id, object subject)
+            {
+                this.Id = id.ToString();
+                this.Subject = subject.ToString();
             }
         }
         public AddSchedule()
@@ -68,8 +79,11 @@ namespace Journal1
             typeOfClassComboBox2.Hide();
             typeOfClassComboBox3.Hide();
             typeOfClassComboBox4.Hide();
+            buttonAddSubject.Hide();
+            labelName.Hide();
             try
             {
+                facultiesComboBox.SelectedIndex = -1;
                 weekComboBox.SelectedIndex = -1;
                 weekdayComboBox.SelectedIndex=-1;
             }
@@ -81,6 +95,7 @@ namespace Journal1
             try
             {
                 facultySelected = facultiesComboBox.SelectedValue.ToString();
+                
                 Group();
             }
             catch { }
@@ -122,18 +137,14 @@ namespace Journal1
             }
         }
 
-        private void comboBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonNext_Click(object sender, EventArgs e)
         {
+            string c1="",c2="",c3="",c4="";
             weekSelected = Convert.ToInt32(weekComboBox.SelectedValue);
             weekDaySelected = Convert.ToInt32(weekdayComboBox.SelectedValue);
             groupSelected = comboBoxGroups.SelectedValue.ToString();
             string sqlExpression = "SELECT * FROM Schedule";
-            string sqlExpression1 = String.Format("DELETE FROM Schedule WHERE Неделя={0} WHERE День_недели={1} WHERE Группа={2}", weekSelected, weekDaySelected, new Guid(groupSelected));
+            bool fl = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -143,58 +154,92 @@ namespace Journal1
                 {
                     while (reader.Read())
                     {
+                        object id = reader.GetValue(0);
                         object week = reader.GetValue(1);
                         object weekday = reader.GetValue(2);
+                        object clas = reader.GetValue(3);
                         object group = reader.GetValue(4);
                         if (Convert.ToInt32(week)==weekSelected&&Convert.ToInt32(weekday)==weekDaySelected&&group.ToString()==groupSelected)
                         {
-                            MessageBox.Show("Расписание на этот день уже есть");
-                            exist = false;
-                            break;
+                            if (!fl)
+                            {
+                                DialogResult result = MessageBox.Show("Расписание на этот день уже есть. Хотите изменить его? Это приведет к потере данных", "Подтверждение", MessageBoxButtons.YesNo);
+                                if (result == DialogResult.Yes)
+                                {
+                                    if (clas.ToString() == "1")
+                                        c1 = id.ToString();
+                                    if (clas.ToString() == "2")
+                                        c2 = id.ToString();
+                                    if (clas.ToString() == "3")
+                                        c3 = id.ToString();
+                                    if (clas.ToString() == "4")
+                                        c4 = id.ToString();
+                                    exist = true;
+                                    fl = true;
+                                }
+                                else
+                                {
+                                    exist = false;
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                if (clas.ToString() == "1")
+                                    c1 = id.ToString();
+                                if (clas.ToString() == "2")
+                                    c2 = id.ToString();
+                                if (clas.ToString() == "3")
+                                    c3 = id.ToString();
+                                if (clas.ToString() == "4")
+                                    c4 = id.ToString();
+                            }
+
                         }
                     }
                 }
                 reader.Close();
             }
-            if (exist) Change();
-        }
-
-        private void buttonBack_Click(object sender, EventArgs e)
-        {
-            labelFaculty.Show();
-            labelGroup.Show();
-            labelWeek.Show();
-            labelWeekDay.Show();
-            facultiesComboBox.Show();
-            comboBoxGroups.Show();
-            weekComboBox.Show();
-            weekdayComboBox.Show();
-            buttonNext.Show();
-            buttonAdd.Hide();
-            labelFirst.Hide();
-            labelSecond.Hide();
-            labelThird.Hide();
-            labelFourth.Hide();
-            subjectsComboBox1.Hide();
-            subjectsComboBox2.Hide();
-            subjectsComboBox3.Hide();
-            subjectsComboBox4.Hide();
-            typeOfClassComboBox1.Hide();
-            typeOfClassComboBox2.Hide();
-            typeOfClassComboBox3.Hide();
-            typeOfClassComboBox4.Hide();
-            try
+            if (exist)
             {
-                weekComboBox.SelectedIndex = -1;
-                weekdayComboBox.SelectedIndex = -1;
+                if (c1 != "")
+                {
+                    Delete(c1);
+                }
+                if (c2 != "")
+                {
+                    Delete(c2);
+                }
+                if (c3 != "")
+                {
+                    Delete(c3);
+                }
+                if (c4 != "")
+                {
+                    Delete(c4);
+                }
+                Change();
             }
-            catch { }
         }
+        public void Delete(string idS)
+        {
+            Guid id = new Guid(idS);
+            string sqlExpression = String.Format("DELETE FROM Schedule WHERE Id=@id");
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlParameter idParam = new SqlParameter("@id", id);
+                command.Parameters.Add(idParam);
+                command.ExecuteNonQuery();
+            }
 
+        }
         public void Change()
         {
             try
             {
+                buttonAddSubject.Show();
                 labelFaculty.Hide();
                 labelGroup.Hide();
                 labelWeek.Hide();
@@ -209,13 +254,9 @@ namespace Journal1
                 labelThird.Show();
                 labelFourth.Show();
                 subjectsComboBox1.Show();
-                subjectsComboBox1.SelectedIndex = -1;
                 subjectsComboBox2.Show();
-                subjectsComboBox2.SelectedIndex = -1;
                 subjectsComboBox3.Show();
-                subjectsComboBox3.SelectedIndex = -1;
                 subjectsComboBox4.Show();
-                subjectsComboBox4.SelectedIndex = -1;
                 typeOfClassComboBox1.Show();
                 typeOfClassComboBox1.SelectedIndex = -1;
                 typeOfClassComboBox2.Show();
@@ -225,6 +266,77 @@ namespace Journal1
                 typeOfClassComboBox4.Show();
                 typeOfClassComboBox4.SelectedIndex = -1;
                 buttonAdd.Show();
+                buttonAddFaculty.Hide();
+                buttonAddGroup.Hide();
+                subjectsComboBox1.SelectedIndex = -1;
+                subjectsComboBox2.SelectedIndex = -1;
+                subjectsComboBox3.SelectedIndex = -1;
+                subjectsComboBox4.SelectedIndex = -1;
+                Subj();
+                
+                string sqlexpression1 = "SELECT * FROM Faculties";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlexpression1, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object id = reader.GetValue(0);
+                            object faculty = reader.GetValue(1);
+                            if (id.ToString() == facultySelected)
+                            {
+                                labelName.Text = faculty.ToString()+" ";
+                            }
+                        }
+                    }
+                    reader.Close();
+                }
+                string sqlexpression = "SELECT * FROM Groups";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlexpression, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object id = reader.GetValue(0);
+                            object group = reader.GetValue(2);
+                            if (id.ToString() == groupSelected)
+                            {
+                                labelName.Text =labelName.Text+ group.ToString()+" ";
+                            }
+                        }
+                    }
+                    reader.Close();
+                }
+                string day = "";
+                sqlexpression = "SELECT * FROM Weekday";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlexpression, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object id = reader.GetValue(0);
+                            object wd = reader.GetValue(1);
+                            if (Convert.ToInt32(id) == weekDaySelected)
+                            {
+                                day = wd.ToString();
+                            }
+                        }
+                    }
+                    reader.Close();
+                }
+                labelName.Text = labelName.Text + weekSelected+" неделя "+day;
+                labelName.Show();
             }
             catch { }
         }
@@ -277,6 +389,96 @@ namespace Journal1
                 int number = command.ExecuteNonQuery();
             }
 
+        }
+
+        private void buttonAddFaculty_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddFaculty addFaculty = new AddFaculty();
+                addFaculty.ShowDialog();
+                addFaculty.Close();
+                this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+                facultiesComboBox.SelectedIndex = -1;
+            }
+            catch { }
+        }
+
+        private void buttonAddGroup_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddGroupWithoutStudents withoutStudents = new AddGroupWithoutStudents();
+                withoutStudents.ShowDialog();
+                Group();
+                withoutStudents.Close();
+
+            }
+            catch { }
+        }
+
+        private void buttonAddSubject_Click(object sender, EventArgs e)
+        {
+            AddSubject addSubject = new AddSubject();
+            addSubject.ShowDialog();
+            addSubject.Close();
+            Subj();
+        }
+        public void Subj()
+        {
+            try
+            {
+                int s1 = subjectsComboBox1.SelectedIndex;
+                int s2 = subjectsComboBox2.SelectedIndex;
+                int s3 = subjectsComboBox3.SelectedIndex;
+                int s4 = subjectsComboBox4.SelectedIndex;
+                ArrayList subjects1 = new ArrayList();
+                ArrayList subjects2 = new ArrayList();
+                ArrayList subjects3 = new ArrayList();
+                ArrayList subjects4 = new ArrayList();
+                string facultySelected = facultiesComboBox.SelectedValue.ToString();
+                string sqlExpression = "SELECT * FROM Subjects";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object id = reader.GetValue(0);
+                            object subject = reader.GetValue(1);
+                            object faculty = reader.GetValue(2);
+                            if (faculty.ToString() == facultySelected)
+                            {
+                                subjects1.Add(new Subjects(id, subject));
+                                subjects2.Add(new Subjects(id, subject));
+                                subjects3.Add(new Subjects(id, subject));
+                                subjects4.Add(new Subjects(id, subject));
+                            }
+                        }
+                    }
+                    subjectsComboBox1.DataSource = subjects1;
+                    subjectsComboBox1.DisplayMember = "subject";
+                    subjectsComboBox1.ValueMember = "id";
+                    subjectsComboBox2.DataSource = subjects2;
+                    subjectsComboBox2.DisplayMember = "subject";
+                    subjectsComboBox2.ValueMember = "id";
+                    subjectsComboBox3.DataSource = subjects3;
+                    subjectsComboBox3.DisplayMember = "subject";
+                    subjectsComboBox3.ValueMember = "id";
+                    subjectsComboBox4.DataSource = subjects4;
+                    subjectsComboBox4.DisplayMember = "subject";
+                    subjectsComboBox4.ValueMember = "id";
+                    reader.Close();
+                }
+                subjectsComboBox1.SelectedIndex = s1;
+                subjectsComboBox2.SelectedIndex = s2;
+                subjectsComboBox3.SelectedIndex = s3;
+                subjectsComboBox4.SelectedIndex = s4;
+            }
+            catch { }
         }
     }
 }

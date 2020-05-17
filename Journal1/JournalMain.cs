@@ -25,18 +25,9 @@ namespace Journal1
                 this.Group = Convert.ToInt32(group);
             }
         }
-        public class Faculties
-        {
-            public string Id { get; set; }
-            public string Faculty { get; set; }
-            public Faculties(object id, object faculty)
-            {
-                this.Id = id.ToString();
-                this.Faculty = faculty.ToString();
-            }
-        }
         string connectionString= @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
         int weekdaySelected, weekSelected;
+        string facultySelected;
         public JournalMain()
         {
             InitializeComponent();
@@ -52,18 +43,7 @@ namespace Journal1
             this.groupsTableAdapter.Fill(this.journalDataDataSet.Groups);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Faculties". При необходимости она может быть перемещена или удалена.
             this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
-            listBoxGroups.Hide();
-            subjectsListBox.Hide();
-            dateTimePicker.Hide();
-            button1.Hide();
-            button2.Hide();
-            button3.Hide();
-            button4.Hide();
-            label1.Hide();
-            label2.Hide();
-            label3.Hide();
-            label4.Hide();
-            buttonNext.Hide();
+            Back();
         }
 
         private void ToolStripMenuItemAddFaculty_Click(object sender, EventArgs e)
@@ -72,6 +52,7 @@ namespace Journal1
             addFaculty.ShowDialog();
             addFaculty.Close();
             this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+            Back();
         }
 
         private void facultiesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -89,19 +70,7 @@ namespace Journal1
             this.groupsTableAdapter.Fill(this.journalDataDataSet.Groups);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Faculties". При необходимости она может быть перемещена или удалена.
             this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
-            listBoxGroups.Hide();
-            subjectsListBox.Hide();
-            facultiesListBox.Show();
-            button1.Hide();
-            button2.Hide();
-            button3.Hide();
-            button4.Hide();
-            label1.Hide();
-            label2.Hide();
-            label3.Hide();
-            label4.Hide();
-            buttonNext.Hide();
-            dateTimePicker.Hide();
+            Back();
         }
 
         private void ToolStripMenuItemSubjectsList_Click(object sender, EventArgs e)
@@ -109,7 +78,6 @@ namespace Journal1
             facultiesListBox.Hide();
             listBoxGroups.Hide();
             dateTimePicker.Hide();
-            subjectsListBox.Show();
             button1.Hide();
             button2.Hide();
             button3.Hide();
@@ -119,7 +87,15 @@ namespace Journal1
             label3.Hide();
             label4.Hide();
             buttonNext.Hide();
-            
+            labelFaculty.Hide();
+            labelGroup.Hide();
+            labelInstruction.Hide();
+            comboBoxWeek.Hide();
+            labelDate.Hide();
+            facultiesComboBox.Show();
+            buttonNextSubjects.Show();
+            listBoxSubjects.Items.Clear();
+            listBoxSubjects.Hide();
         }
 
         private void ToolStripMenuItemAddStudent_Click(object sender, EventArgs e)
@@ -127,46 +103,7 @@ namespace Journal1
             AddStudent addStudent = new AddStudent();
             addStudent.ShowDialog();
             addStudent.Close();
-        }
-
-        private void facultiesListBox_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            try
-            {
-                    facultiesListBox.Hide();
-                    listBoxGroups.Show();
-                    ArrayList groups = new ArrayList();
-                    string facultySelected = facultiesListBox.SelectedValue.ToString();
-                    string sqlExpression = "SELECT * FROM Groups";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    SqlDataReader reader = command.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            object id = reader.GetValue(0);
-                            object faculty = reader.GetValue(1);
-                            object group = reader.GetValue(2);
-                            if (faculty.ToString() == facultySelected)
-                            {
-                                groups.Add(new Groups(id, group));
-                            }
-                        }
-                    }
-                    listBoxGroups.DataSource = groups;
-                    listBoxGroups.DisplayMember = "group";
-                    listBoxGroups.ValueMember = "id";
-                    reader.Close();
-                }
-            }
-            catch
-            {
-
-            }
-
+            Back();
         }
 
         private void ToolStripMenuItemAddGroup_Click(object sender, EventArgs e)
@@ -178,18 +115,41 @@ namespace Journal1
                 AddGroupWithoutStudents withoutStudents = new AddGroupWithoutStudents();
                 withoutStudents.ShowDialog();
                 withoutStudents.Close();
+                Back();
                 this.groupsTableAdapter.Fill(this.journalDataDataSet.Groups);
             }
-            catch
-            { }
-
+            catch { }
         }
-
+        private void Back()
+        {
+            listBoxGroups.Hide();
+            facultiesListBox.Show();
+            button1.Hide();
+            button2.Hide();
+            button3.Hide();
+            button4.Hide();
+            label1.Hide();
+            label2.Hide();
+            label3.Hide();
+            label4.Hide();
+            buttonNext.Hide();
+            dateTimePicker.Hide();
+            labelDate.Hide();
+            labelFaculty.Hide();
+            labelGroup.Hide();
+            labelInstruction.Hide();
+            comboBoxWeek.Hide();
+            facultiesComboBox.Hide();
+            listBoxSubjects.Hide();
+            buttonNextSubjects.Hide();
+            this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+        }
         private void ToolStripMenuItemAddSchedule_Click(object sender, EventArgs e)
         {
             AddSchedule addSchedule = new AddSchedule();
             addSchedule.ShowDialog();
             addSchedule.Close();
+            Back();
         }
 
         private void ToolStripMenuItemAddSubject_Click(object sender, EventArgs e)
@@ -197,13 +157,14 @@ namespace Journal1
             AddSubject addSubject = new AddSubject();
             addSubject.ShowDialog();
             addSubject.Close();
+            Back();
+            this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
         }
 
         private void ToolStripMenuItemFacultiesList_Click(object sender, EventArgs e)
         {
             facultiesListBox.Show();
             listBoxGroups.Hide();
-            subjectsListBox.Hide();
             dateTimePicker.Hide();
             button1.Hide();
             button2.Hide();
@@ -214,18 +175,28 @@ namespace Journal1
             label3.Hide();
             label4.Hide();
             buttonNext.Hide();
+            labelFaculty.Hide();
+            labelGroup.Hide();
+            labelInstruction.Hide();
+            comboBoxWeek.Hide();
+            labelDate.Hide();
+            facultiesComboBox.Hide();
+            listBoxSubjects.Hide();
+            buttonNextSubjects.Hide();
         }
 
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBoxGroups.Hide();
+            labelInstruction.Show();
+            comboBoxWeek.Show();
             dateTimePicker.Show();
             buttonNext.Show();
         }
 
         public void Lab(string idSEl,StringBuilder sb1)
         {
-            string sqlExpression1 = "SELECT * FROM Subjects";
+            string sqlExpression1 = "SELECT * FROM Subjects ORDER BY Предмет";
             using(SqlConnection connection=new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -246,28 +217,61 @@ namespace Journal1
 
         private void listBoxGroups_Click(object sender, EventArgs e)
         {
-            listBoxGroups.Hide();
-            dateTimePicker.Show();
-            buttonNext.Show();
+            try
+            {
+                listBoxGroups.Hide();
+                labelGroup.Show();
+                string groupSelected = listBoxGroups.SelectedValue.ToString();
+                string sqlexpression1 = "SELECT * FROM Groups";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlexpression1, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object id = reader.GetValue(0);
+                            object group = reader.GetValue(2);
+                            if (id.ToString() == groupSelected)
+                            {
+                                labelGroup.Text = group.ToString();
+                            }
+                        }
+                    }
+                    reader.Close();
+                }
+                dateTimePicker.Show();
+                buttonNext.Show();
+                labelInstruction.Show();
+                comboBoxWeek.Show();
+            }
+            catch
+            {
+                MessageBox.Show("Групп нет");
+                Back();
+            }
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void Click()
         {
             dateTimePicker.Hide();
             buttonNext.Hide();
+            labelInstruction.Hide();
+            comboBoxWeek.Hide();
+            labelDate.Show();
             DateTime day = dateTimePicker.Value;
-            weekdaySelected = (int)day.DayOfWeek;
-            GregorianCalendar cal = new GregorianCalendar(GregorianCalendarTypes.Localized);
-            weekSelected=cal.GetWeekOfYear(day, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday)%2;
-            if (weekSelected == 0)
-                weekSelected = 2;
-            else
+            if (comboBoxWeek.SelectedIndex == 0)
                 weekSelected = 1;
+            else
+                weekSelected=2;
+            labelDate.Text = day.ToShortDateString();
+            weekdaySelected = (int)day.DayOfWeek;
             try
             {
                 ArrayList groups = new ArrayList();
                 string sqlExpression = "SELECT * FROM Schedule";
-                
+
                 StringBuilder sb1 = new StringBuilder();
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -285,12 +289,12 @@ namespace Journal1
                             object group = reader.GetValue(4);
                             object sub = reader.GetValue(5);
                             object type = reader.GetValue(6);
-                            if (weekSelected==week&&weekdaySelected==weekday&&listBoxGroups.SelectedValue.ToString()==group.ToString()&&cl==1)
+                            if (weekSelected == week && weekdaySelected == weekday && listBoxGroups.SelectedValue.ToString() == group.ToString() && cl == 1)
                             {
                                 Lab(sub.ToString(), sb1);
                                 Lab2((int)type, sb1);
                                 label1.Text = sb1.ToString();
-                                button1.Show();label1.Show();
+                                button1.Show(); label1.Show();
                                 sb1.Clear();
                             }
                             if (weekSelected == week && weekdaySelected == weekday && listBoxGroups.SelectedValue.ToString() == group.ToString() && cl == 2)
@@ -322,36 +326,199 @@ namespace Journal1
                     reader.Close();
                 }
             }
-            catch {}
-
+            catch { }
         }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Mark mark = new Mark(listBoxGroups.SelectedValue.ToString(),1,dateTimePicker.Value);
+            Mark mark = new Mark(listBoxGroups.SelectedValue.ToString(),1,dateTimePicker.Value,facultySelected);
             mark.ShowDialog();
             mark.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Mark mark = new Mark(listBoxGroups.SelectedValue.ToString(), 2, dateTimePicker.Value);
+            Mark mark = new Mark(listBoxGroups.SelectedValue.ToString(), 2, dateTimePicker.Value,facultySelected);
             mark.ShowDialog();
             mark.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Mark mark = new Mark(listBoxGroups.SelectedValue.ToString(), 3, dateTimePicker.Value);
+            Mark mark = new Mark(listBoxGroups.SelectedValue.ToString(), 3, dateTimePicker.Value,facultySelected);
             mark.ShowDialog();
             mark.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Mark mark = new Mark(listBoxGroups.SelectedValue.ToString(), 4, dateTimePicker.Value);
+            Mark mark = new Mark(listBoxGroups.SelectedValue.ToString(), 4, dateTimePicker.Value,facultySelected);
             mark.ShowDialog();
             mark.Close();
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            Click();
+        }
+
+        private void facultiesListBox_Click(object sender, EventArgs e)
+        { 
+            try
+            {
+                labelFaculty.Show();
+                facultiesListBox.Hide();
+                listBoxGroups.Show();
+                ArrayList groups = new ArrayList();
+                facultySelected = facultiesListBox.SelectedValue.ToString();
+                string sqlexpression1 = "SELECT * FROM Faculties";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlexpression1, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object id = reader.GetValue(0);
+                            object faculty = reader.GetValue(1);
+                            if (id.ToString() == facultySelected)
+                            {
+                                labelFaculty.Text = faculty.ToString();
+                            }
+                        }
+                    }
+                    reader.Close();
+                }
+                string sqlExpression = "SELECT * FROM Groups ORDER BY Группа";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object id = reader.GetValue(0);
+                            object faculty = reader.GetValue(1);
+                            object group = reader.GetValue(2);
+                            if (faculty.ToString() == facultySelected)
+                            {
+                                groups.Add(new Groups(id, group));
+                            }
+                        }
+                    }
+                    listBoxGroups.DataSource = groups;
+                    listBoxGroups.DisplayMember = "group";
+                    listBoxGroups.ValueMember = "id";
+                    reader.Close();
+                }
+            }
+            catch { }
+
+        }
+
+        private void buttonNextSubjects_Click(object sender, EventArgs e)
+        {
+            facultiesComboBox.Hide();
+            buttonNextSubjects.Hide();
+            listBoxSubjects.Show();
+            labelFaculty.Show();
+            string facultySelected = facultiesComboBox.SelectedValue.ToString();
+            try
+            {
+                string sqlexpression1 = "SELECT * FROM Faculties";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlexpression1, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object id = reader.GetValue(0);
+                            object faculty = reader.GetValue(1);
+                            if (id.ToString() == facultySelected)
+                            {
+                                labelFaculty.Text = faculty.ToString();
+                            }
+                        }
+                    }
+                    reader.Close();
+                }
+                string sqlExpression = "SELECT * FROM Subjects ORDER BY Предмет";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object id = reader.GetValue(0);
+                            object subject = reader.GetValue(1);
+                            object faculty = reader.GetValue(2);
+                            if (faculty.ToString() == facultySelected)
+                            {
+                                listBoxSubjects.Items.Add(subject.ToString());
+                            }
+                        }
+                    }
+                    reader.Close();
+                }
+            }
+            catch { }
+        }
+
+        private void ToolStripMenuItemDeleteFaculty_Click(object sender, EventArgs e)
+        {
+            DeleteFaculty deleteFaculty = new DeleteFaculty();
+            deleteFaculty.ShowDialog();
+            deleteFaculty.Close();
+            Back();
+        }
+
+        private void ToolStripMenuItemDeleteGroup_Click(object sender, EventArgs e)
+        {
+            DeleteGroup deleteGroup = new DeleteGroup();
+            deleteGroup.ShowDialog();
+            deleteGroup.Close();
+            Back();
+        }
+
+        private void ToolStripMenuItemDeleteSubject_Click(object sender, EventArgs e)
+        {
+            DeleteSubject deleteSubject = new DeleteSubject();
+            deleteSubject.ShowDialog();
+            deleteSubject.Close();
+            Back();
+        }
+
+        private void ToolStripMenuItemDeleteStudent_Click(object sender, EventArgs e)
+        {
+            DeleteStudent deleteStudent = new DeleteStudent();
+            deleteStudent.ShowDialog();
+            deleteStudent.Close();
+            Back();
+        }
+
+        private void ToolStripMenuItemChange_Click(object sender, EventArgs e)
+        {
+            ChangeFaculty changeFaculty = new ChangeFaculty();
+            changeFaculty.ShowDialog();
+            changeFaculty.Close();
+            Back();
+        }
+
+        private void ToolStripMenuItemOpenStudentsList_Click(object sender, EventArgs e)
+        {
+            StudentsList studentsList = new StudentsList();
+            studentsList.ShowDialog();
+            studentsList.Close();
+            Back();
         }
 
         public void Lab2(int idSel,StringBuilder sb)

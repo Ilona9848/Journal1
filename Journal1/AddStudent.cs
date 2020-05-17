@@ -41,6 +41,8 @@ namespace Journal1
 
         private void AddStudent_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Groups". При необходимости она может быть перемещена или удалена.
+            this.groupsTableAdapter.Fill(this.journalDataDataSet.Groups);
             this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
             try
             {
@@ -88,8 +90,16 @@ namespace Journal1
         {
             try
             {
-                ArrayList groups = new ArrayList();
                 facultySelected = facultiesComboBox.SelectedValue.ToString();
+                LoadGroup();
+            }
+            catch { }
+        }
+        public void LoadGroup()
+        {
+            try
+            {
+                ArrayList groups = new ArrayList();
                 string sqlExpression = "SELECT * FROM Groups";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -120,7 +130,35 @@ namespace Journal1
             {
 
             }
-            
+
+        }
+        private void buttonAddFaculty_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddFaculty addFaculty = new AddFaculty();
+                addFaculty.ShowDialog();
+                addFaculty.Close();
+                this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+                facultiesComboBox.SelectedIndex = -1;
+            }
+            catch { }
+        }
+
+        private void buttonAddGroup_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddGroupWithoutStudents withoutStudents = new AddGroupWithoutStudents();
+                withoutStudents.ShowDialog();
+                LoadGroup();
+                this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+                facultiesComboBox.SelectedIndex = -1;
+                withoutStudents.Close();
+                
+                
+            }
+            catch { }
         }
     }
 }

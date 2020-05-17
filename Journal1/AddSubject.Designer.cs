@@ -28,20 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSubject));
             this.buttonNext = new System.Windows.Forms.Button();
             this.textBoxSubject = new System.Windows.Forms.TextBox();
             this.labelExample = new System.Windows.Forms.Label();
             this.labelInstruction = new System.Windows.Forms.Label();
+            this.labelInstr = new System.Windows.Forms.Label();
+            this.journalDataDataSet = new Journal1.JournalDataDataSet();
+            this.facultiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.facultiesTableAdapter = new Journal1.JournalDataDataSetTableAdapters.FacultiesTableAdapter();
+            this.tableAdapterManager = new Journal1.JournalDataDataSetTableAdapters.TableAdapterManager();
+            this.facultiesComboBox = new System.Windows.Forms.ComboBox();
+            this.buttonAddFaculty = new System.Windows.Forms.Button();
+            this.labelInstr3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.journalDataDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facultiesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonNext
             // 
             this.buttonNext.BackColor = System.Drawing.Color.SlateBlue;
             this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonNext.Font = new System.Drawing.Font("Segoe Script", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonNext.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonNext.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonNext.Location = new System.Drawing.Point(680, 12);
+            this.buttonNext.Location = new System.Drawing.Point(677, 17);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(108, 40);
             this.buttonNext.TabIndex = 6;
@@ -51,19 +62,20 @@
             // 
             // textBoxSubject
             // 
-            this.textBoxSubject.Location = new System.Drawing.Point(163, 198);
+            this.textBoxSubject.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxSubject.Location = new System.Drawing.Point(130, 164);
             this.textBoxSubject.Name = "textBoxSubject";
-            this.textBoxSubject.Size = new System.Drawing.Size(364, 26);
+            this.textBoxSubject.Size = new System.Drawing.Size(364, 31);
             this.textBoxSubject.TabIndex = 10;
             // 
             // labelExample
             // 
             this.labelExample.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelExample.AutoSize = true;
-            this.labelExample.Font = new System.Drawing.Font("Segoe Script", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelExample.Location = new System.Drawing.Point(139, 132);
+            this.labelExample.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelExample.Location = new System.Drawing.Point(140, 113);
             this.labelExample.Name = "labelExample";
-            this.labelExample.Size = new System.Drawing.Size(407, 33);
+            this.labelExample.Size = new System.Drawing.Size(329, 23);
             this.labelExample.TabIndex = 9;
             this.labelExample.Text = "Пример: Математический анализ\r\n";
             // 
@@ -71,19 +83,100 @@
             // 
             this.labelInstruction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelInstruction.AutoSize = true;
-            this.labelInstruction.Font = new System.Drawing.Font("Segoe Script", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstruction.Location = new System.Drawing.Point(177, 99);
+            this.labelInstruction.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInstruction.Location = new System.Drawing.Point(181, 68);
             this.labelInstruction.Name = "labelInstruction";
-            this.labelInstruction.Size = new System.Drawing.Size(335, 33);
+            this.labelInstruction.Size = new System.Drawing.Size(296, 23);
             this.labelInstruction.TabIndex = 8;
             this.labelInstruction.Text = "Введите название предмета.";
+            // 
+            // labelInstr
+            // 
+            this.labelInstr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.labelInstr.AutoSize = true;
+            this.labelInstr.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInstr.Location = new System.Drawing.Point(196, 264);
+            this.labelInstr.Name = "labelInstr";
+            this.labelInstr.Size = new System.Drawing.Size(208, 23);
+            this.labelInstr.TabIndex = 11;
+            this.labelInstr.Text = "Выберите факультет";
+            // 
+            // journalDataDataSet
+            // 
+            this.journalDataDataSet.DataSetName = "JournalDataDataSet";
+            this.journalDataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // facultiesBindingSource
+            // 
+            this.facultiesBindingSource.DataMember = "Faculties";
+            this.facultiesBindingSource.DataSource = this.journalDataDataSet;
+            // 
+            // facultiesTableAdapter
+            // 
+            this.facultiesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ClassesTableAdapter = null;
+            this.tableAdapterManager.FacultiesTableAdapter = this.facultiesTableAdapter;
+            this.tableAdapterManager.GroupsTableAdapter = null;
+            this.tableAdapterManager.ScheduleTableAdapter = null;
+            this.tableAdapterManager.StudentsTableAdapter = null;
+            this.tableAdapterManager.SubjectsTableAdapter = null;
+            this.tableAdapterManager.TypeOfClassTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Journal1.JournalDataDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.WeekdayTableAdapter = null;
+            this.tableAdapterManager.WeekTableAdapter = null;
+            // 
+            // facultiesComboBox
+            // 
+            this.facultiesComboBox.DataSource = this.facultiesBindingSource;
+            this.facultiesComboBox.DisplayMember = "Факультет";
+            this.facultiesComboBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.facultiesComboBox.FormattingEnabled = true;
+            this.facultiesComboBox.Location = new System.Drawing.Point(145, 322);
+            this.facultiesComboBox.Name = "facultiesComboBox";
+            this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
+            this.facultiesComboBox.TabIndex = 12;
+            this.facultiesComboBox.ValueMember = "Id";
+            // 
+            // buttonAddFaculty
+            // 
+            this.buttonAddFaculty.AutoSize = true;
+            this.buttonAddFaculty.BackColor = System.Drawing.Color.SlateBlue;
+            this.buttonAddFaculty.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAddFaculty.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddFaculty.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonAddFaculty.Location = new System.Drawing.Point(176, 439);
+            this.buttonAddFaculty.Name = "buttonAddFaculty";
+            this.buttonAddFaculty.Size = new System.Drawing.Size(218, 40);
+            this.buttonAddFaculty.TabIndex = 13;
+            this.buttonAddFaculty.Text = "Добавить факультет";
+            this.buttonAddFaculty.UseVisualStyleBackColor = false;
+            this.buttonAddFaculty.Click += new System.EventHandler(this.buttonAddFaculty_Click);
+            // 
+            // labelInstr3
+            // 
+            this.labelInstr3.AutoSize = true;
+            this.labelInstr3.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInstr3.Location = new System.Drawing.Point(61, 389);
+            this.labelInstr3.Name = "labelInstr3";
+            this.labelInstr3.Size = new System.Drawing.Size(560, 23);
+            this.labelInstr3.TabIndex = 14;
+            this.labelInstr3.Text = "Если вы не нашли нужный факультет, то добавьте его";
             // 
             // AddSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(805, 513);
+            this.Controls.Add(this.labelInstr3);
+            this.Controls.Add(this.buttonAddFaculty);
+            this.Controls.Add(this.facultiesComboBox);
+            this.Controls.Add(this.labelInstr);
             this.Controls.Add(this.textBoxSubject);
             this.Controls.Add(this.labelExample);
             this.Controls.Add(this.labelInstruction);
@@ -91,6 +184,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddSubject";
             this.Text = "Добавить предмет";
+            this.Load += new System.EventHandler(this.AddSubject_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.journalDataDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facultiesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,5 +198,13 @@
         private System.Windows.Forms.TextBox textBoxSubject;
         private System.Windows.Forms.Label labelExample;
         private System.Windows.Forms.Label labelInstruction;
+        private System.Windows.Forms.Label labelInstr;
+        private JournalDataDataSet journalDataDataSet;
+        private System.Windows.Forms.BindingSource facultiesBindingSource;
+        private JournalDataDataSetTableAdapters.FacultiesTableAdapter facultiesTableAdapter;
+        private JournalDataDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.ComboBox facultiesComboBox;
+        private System.Windows.Forms.Button buttonAddFaculty;
+        private System.Windows.Forms.Label labelInstr3;
     }
 }

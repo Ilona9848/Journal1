@@ -1,6 +1,6 @@
 ﻿namespace Journal1
 {
-    partial class AddGroupWithoutStudents
+    partial class DeleteGroup
     {
         /// <summary>
         /// Required designer variable.
@@ -29,18 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddGroupWithoutStudents));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteGroup));
             this.labelInstruction = new System.Windows.Forms.Label();
             this.journalDataDataSet = new Journal1.JournalDataDataSet();
             this.facultiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.facultiesTableAdapter = new Journal1.JournalDataDataSetTableAdapters.FacultiesTableAdapter();
             this.tableAdapterManager = new Journal1.JournalDataDataSetTableAdapters.TableAdapterManager();
             this.facultiesComboBox = new System.Windows.Forms.ComboBox();
-            this.labelInstruction2 = new System.Windows.Forms.Label();
-            this.textBoxGroup = new System.Windows.Forms.TextBox();
-            this.buttonNext = new System.Windows.Forms.Button();
-            this.buttonAddFaculty = new System.Windows.Forms.Button();
-            this.labelInstr3 = new System.Windows.Forms.Label();
+            this.labelGroup = new System.Windows.Forms.Label();
+            this.listBoxGroups = new System.Windows.Forms.ListBox();
+            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.journalDataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultiesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -50,10 +48,10 @@
             this.labelInstruction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelInstruction.AutoSize = true;
             this.labelInstruction.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstruction.Location = new System.Drawing.Point(242, 77);
+            this.labelInstruction.Location = new System.Drawing.Point(197, 51);
             this.labelInstruction.Name = "labelInstruction";
             this.labelInstruction.Size = new System.Drawing.Size(208, 23);
-            this.labelInstruction.TabIndex = 2;
+            this.labelInstruction.TabIndex = 3;
             this.labelInstruction.Text = "Выберите факультет";
             // 
             // journalDataDataSet
@@ -90,89 +88,63 @@
             this.facultiesComboBox.DisplayMember = "Факультет";
             this.facultiesComboBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesComboBox.FormattingEnabled = true;
-            this.facultiesComboBox.Location = new System.Drawing.Point(200, 122);
+            this.facultiesComboBox.Location = new System.Drawing.Point(163, 96);
             this.facultiesComboBox.Name = "facultiesComboBox";
             this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
-            this.facultiesComboBox.TabIndex = 3;
+            this.facultiesComboBox.TabIndex = 4;
             this.facultiesComboBox.ValueMember = "Id";
             this.facultiesComboBox.SelectedIndexChanged += new System.EventHandler(this.facultiesComboBox_SelectedIndexChanged);
             // 
-            // labelInstruction2
+            // labelGroup
             // 
-            this.labelInstruction2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.labelInstruction2.AutoSize = true;
-            this.labelInstruction2.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstruction2.Location = new System.Drawing.Point(220, 196);
-            this.labelInstruction2.Name = "labelInstruction2";
-            this.labelInstruction2.Size = new System.Drawing.Size(230, 23);
-            this.labelInstruction2.TabIndex = 4;
-            this.labelInstruction2.Text = "Введите номер группы";
+            this.labelGroup.AutoSize = true;
+            this.labelGroup.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelGroup.Location = new System.Drawing.Point(258, 140);
+            this.labelGroup.Name = "labelGroup";
+            this.labelGroup.Size = new System.Drawing.Size(76, 23);
+            this.labelGroup.TabIndex = 5;
+            this.labelGroup.Text = "Группа";
             // 
-            // textBoxGroup
+            // listBoxGroups
             // 
-            this.textBoxGroup.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxGroup.Location = new System.Drawing.Point(283, 242);
-            this.textBoxGroup.Name = "textBoxGroup";
-            this.textBoxGroup.Size = new System.Drawing.Size(100, 31);
-            this.textBoxGroup.TabIndex = 5;
+            this.listBoxGroups.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxGroups.FormattingEnabled = true;
+            this.listBoxGroups.ItemHeight = 23;
+            this.listBoxGroups.Location = new System.Drawing.Point(184, 176);
+            this.listBoxGroups.Name = "listBoxGroups";
+            this.listBoxGroups.Size = new System.Drawing.Size(233, 234);
+            this.listBoxGroups.TabIndex = 6;
             // 
-            // buttonNext
+            // buttonDelete
             // 
-            this.buttonNext.BackColor = System.Drawing.Color.SlateBlue;
-            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonNext.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonNext.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonNext.Location = new System.Drawing.Point(669, 13);
-            this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(108, 40);
-            this.buttonNext.TabIndex = 6;
-            this.buttonNext.Text = "Далее";
-            this.buttonNext.UseVisualStyleBackColor = false;
-            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            this.buttonDelete.AutoSize = true;
+            this.buttonDelete.BackColor = System.Drawing.Color.SlateBlue;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDelete.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonDelete.Location = new System.Drawing.Point(590, 12);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(176, 35);
+            this.buttonDelete.TabIndex = 7;
+            this.buttonDelete.Text = "Удалить группу";
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // buttonAddFaculty
-            // 
-            this.buttonAddFaculty.AutoSize = true;
-            this.buttonAddFaculty.BackColor = System.Drawing.Color.SlateBlue;
-            this.buttonAddFaculty.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonAddFaculty.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddFaculty.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonAddFaculty.Location = new System.Drawing.Point(224, 242);
-            this.buttonAddFaculty.Name = "buttonAddFaculty";
-            this.buttonAddFaculty.Size = new System.Drawing.Size(218, 40);
-            this.buttonAddFaculty.TabIndex = 14;
-            this.buttonAddFaculty.Text = "Добавить факультет";
-            this.buttonAddFaculty.UseVisualStyleBackColor = false;
-            this.buttonAddFaculty.Click += new System.EventHandler(this.buttonAddFaculty_Click);
-            // 
-            // labelInstr3
-            // 
-            this.labelInstr3.AutoSize = true;
-            this.labelInstr3.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstr3.Location = new System.Drawing.Point(106, 196);
-            this.labelInstr3.Name = "labelInstr3";
-            this.labelInstr3.Size = new System.Drawing.Size(560, 23);
-            this.labelInstr3.TabIndex = 15;
-            this.labelInstr3.Text = "Если вы не нашли нужный факультет, то добавьте его";
-            this.labelInstr3.Click += new System.EventHandler(this.labelInstr3_Click);
-            // 
-            // AddGroupWithoutStudents
+            // DeleteGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.labelInstr3);
-            this.Controls.Add(this.buttonAddFaculty);
-            this.Controls.Add(this.buttonNext);
-            this.Controls.Add(this.textBoxGroup);
-            this.Controls.Add(this.labelInstruction2);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.listBoxGroups);
+            this.Controls.Add(this.labelGroup);
             this.Controls.Add(this.facultiesComboBox);
             this.Controls.Add(this.labelInstruction);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddGroupWithoutStudents";
-            this.Text = "Добавить группу";
-            this.Load += new System.EventHandler(this.AddGroupWithoutStudents_Load);
+            this.Name = "DeleteGroup";
+            this.Text = "Удалить группу";
+            this.Load += new System.EventHandler(this.DeleteGroup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.journalDataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultiesBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -181,16 +153,15 @@
         }
 
         #endregion
+
         private System.Windows.Forms.Label labelInstruction;
         private JournalDataDataSet journalDataDataSet;
         private System.Windows.Forms.BindingSource facultiesBindingSource;
         private JournalDataDataSetTableAdapters.FacultiesTableAdapter facultiesTableAdapter;
         private JournalDataDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ComboBox facultiesComboBox;
-        private System.Windows.Forms.Label labelInstruction2;
-        private System.Windows.Forms.TextBox textBoxGroup;
-        private System.Windows.Forms.Button buttonNext;
-        private System.Windows.Forms.Button buttonAddFaculty;
-        private System.Windows.Forms.Label labelInstr3;
+        private System.Windows.Forms.Label labelGroup;
+        private System.Windows.Forms.ListBox listBoxGroups;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }

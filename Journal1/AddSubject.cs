@@ -20,23 +20,60 @@ namespace Journal1
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
-            string subject = textBoxSubject.Text;
-            if (subject == "")
+            try
             {
-                MessageBox.Show("Введите название предмета");
-            }
-            else
-            {
-                string sqlExpression = String.Format("INSERT INTO Subjects (Предмет) VALUES ('{0}')", subject);
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                string connectionString = @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
+                string subject = textBoxSubject.Text;
+                Guid id = new Guid(facultiesComboBox.SelectedValue.ToString());
+                if (subject == "")
                 {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
+                    MessageBox.Show("Введите название предмета и выберите факультет");
                 }
-                this.Close();
+                else
+                {
+                    string sqlExpression = String.Format("INSERT INTO Subjects (Предмет, Факультет) VALUES ('{0}','{1}')", subject,id);
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand command = new SqlCommand(sqlExpression, connection);
+                        int number = command.ExecuteNonQuery();
+                    }
+                    this.Close();
+                }
             }
+            catch { }
+        }
+
+        private void facultiesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.facultiesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.journalDataDataSet);
+
+        }
+
+        private void AddSubject_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Faculties". При необходимости она может быть перемещена или удалена.
+            this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+            try
+            {
+                facultiesComboBox.SelectedIndex = -1;
+            }
+            catch { }
+        }
+
+        private void buttonAddFaculty_Click(object sender, EventArgs e)
+        {
+            AddFaculty addFaculty = new AddFaculty();
+            addFaculty.ShowDialog();
+            addFaculty.Close();
+            this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+            try
+            {
+                facultiesComboBox.SelectedIndex = -1;
+            }
+            catch { }
         }
     }
 }
