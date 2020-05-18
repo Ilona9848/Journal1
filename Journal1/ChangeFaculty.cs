@@ -14,6 +14,17 @@ namespace Journal1
 {
     public partial class ChangeFaculty : Form
     {
+        public class Faculties
+        {
+            public string Id { get; set; }
+            public string Faculty { get; set; }
+            public Faculties(object id, object faculty)
+            {
+                this.Id = id.ToString();
+                this.Faculty = faculty.ToString();
+            }
+        }
+
         public class Groups
         {
             public string Id { get; set; }
@@ -24,6 +35,7 @@ namespace Journal1
                 this.Group = Convert.ToInt32(group);
             }
         }
+
         public class Students
         {
             public string Id { get; set; }
@@ -34,43 +46,82 @@ namespace Journal1
                 this.Name = surname.ToString() + " " + name.ToString() + " " + lastname.ToString();
             }
         }
+
         string facultySelected, groupSelected, studentSelected;
         string connectionString = @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
+        List<Faculties> listFaculties = new List<Faculties>();
+        List<Groups> listGroups = new List<Groups>();
         public ChangeFaculty()
         {
             InitializeComponent();
         }
 
-        private void facultiesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.facultiesBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.journalDataDataSet);
-
-        }
-
         private void ChangeFaculty_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Faculties". При необходимости она может быть перемещена или удалена.
-            this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+            buttonChange.Hide();
+            facultiesComboBox1.Hide();
+            comboBoxGroups1.Hide();
+            LoadFaculties();
+            facultiesComboBox.DataSource = listFaculties;
+            facultiesComboBox.DisplayMember = "faculty";
+            facultiesComboBox.ValueMember = "id";
             try
             {
-                buttonChange.Hide();
-                facultiesComboBox1.Hide();
-                comboBoxGroups1.Hide();
+                
                 facultiesComboBox.SelectedIndex = -1;
                 facultiesComboBox1.SelectedIndex = -1;
             }
             catch { }
         }
 
+        private void facultiesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                facultySelected = facultiesComboBox.SelectedValue.ToString();
+                ArrayList groups = new ArrayList();
+                string sqlExpression = "SELECT * FROM Groups ORDER BY Группа";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object id = reader.GetValue(0);
+                            object faculty = reader.GetValue(1);
+                            object group = reader.GetValue(2);
+                            if (faculty.ToString() == facultySelected)
+                            {
+                                groups.Add(new Groups(id, group));
+                            }
+                        }
+                    }
+                    comboBoxGroups.DataSource = groups;
+                    comboBoxGroups.DisplayMember = "group";
+                    comboBoxGroups.ValueMember = "id";
+                    reader.Close();
+                }
+                comboBoxGroups.SelectedIndex = -1;
+            }
+            catch
+            {
+
+            }
+        
+    
+
+        }
+       
         private void comboBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 groupSelected = comboBoxGroups.SelectedValue.ToString();
-                ArrayList students = new ArrayList();
-                string sqlExpression = "SELECT * FROM Students";
+                List<Students> listStudents = new List<Students>();
+                string sqlExpression = "SELECT * FROM Students Order By Фамилия";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -87,11 +138,11 @@ namespace Journal1
                             object lastname = reader.GetValue(5);
                             if (group.ToString() == groupSelected)
                             {
-                                students.Add(new Students(id, surname, name, lastname));
+                                listStudents.Add(new Students(id, surname, name, lastname));
                             }
                         }
                     }
-                    listBoxStudents.DataSource = students;
+                    listBoxStudents.DataSource = listStudents;
                     listBoxStudents.DisplayMember = "name";
                     listBoxStudents.ValueMember = "id";
                     reader.Close();
@@ -100,13 +151,28 @@ namespace Journal1
             catch { }
         }
 
+        private void listBoxStudents_DoubleClick(object sender, EventArgs e)
+        {
+            buttonChange.Show();
+            facultiesComboBox.Hide();
+            comboBoxGroups.Hide();
+            facultiesComboBox1.Show();
+            comboBoxGroups1.Show();
+            listBoxStudents.Hide();
+            LoadStudent();
+            facultiesComboBox1.DataSource = listFaculties;
+            facultiesComboBox1.DisplayMember = "faculty";
+            facultiesComboBox1.ValueMember = "id";
+            facultiesComboBox1.SelectedIndex = -1;
+        }
+
         private void facultiesComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 facultySelected = facultiesComboBox1.SelectedValue.ToString();
                 ArrayList groups = new ArrayList();
-                string sqlExpression = "SELECT * FROM Groups";
+                string sqlExpression = "SELECT * FROM Groups ORDER BY Группа";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -136,6 +202,7 @@ namespace Journal1
             {
 
             }
+        
         }
 
         private void buttonChange_Click(object sender, EventArgs e)
@@ -163,33 +230,51 @@ namespace Journal1
             catch { }
         }
 
-        private void buttonNew_Click(object sender, EventArgs e)
+        public void LoadGroups()
         {
             try
             {
-                AddGroupWithoutStudents withoutStudents = new AddGroupWithoutStudents();
-                withoutStudents.ShowDialog();
-                LoadGroup();
-                this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
-                facultiesComboBox.SelectedIndex = -1;
-                withoutStudents.Close();
+                string sqlExpression = "SELECT * FROM Groups ORDER BY Группа";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object id = reader.GetValue(0);
+                            object faculty = reader.GetValue(1);
+                            object group = reader.GetValue(2);
+                            if (faculty.ToString() == facultySelected)
+                            {
+                                listGroups.Add(new Groups(id, group));
+                            }
+                        }
+                    }
+                    reader.Close();
+                    comboBoxGroups1.DataSource = listGroups;
+                    comboBoxGroups1.DisplayMember = "group";
+                    comboBoxGroups1.ValueMember = "id";
+                }
+                comboBoxGroups.SelectedIndex = -1;
             }
-            catch { }
+            catch
+            {
+
+            }
         }
 
-        private void listBoxStudents_Click(object sender, EventArgs e)
-        {
-            buttonChange.Show();
-            LoadGroup();
-        }
+        
 
-        public void LoadGroup()
+        public void LoadStudent()
         {
             try
             {
                 string s = "";
                 studentSelected = listBoxStudents.SelectedValue.ToString();
-                string sqlexpression1 = "SELECT * FROM Students";
+                string sqlexpression1 = "SELECT * FROM Students ORDER BY Фамилия";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -221,43 +306,28 @@ namespace Journal1
             { }
 
         }
-
-        private void facultiesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        
+        public void LoadFaculties()
         {
-            try
+            string sqlExpression = "SELECT * FROM Faculties ORDER BY Факультет";
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                facultySelected = facultiesComboBox.SelectedValue.ToString();
-                ArrayList groups = new ArrayList();
-                string sqlExpression = "SELECT * FROM Groups";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    SqlDataReader reader = command.ExecuteReader();
-                    if (reader.HasRows)
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            object id = reader.GetValue(0);
-                            object faculty = reader.GetValue(1);
-                            object group = reader.GetValue(2);
-                            if (faculty.ToString() == facultySelected)
-                            {
-                                groups.Add(new Groups(id, group));
-                            }
-                        }
+                        object id = reader.GetValue(0);
+                        object faculty = reader.GetValue(1);
+                        listFaculties.Add(new Faculties(id, faculty));
                     }
-                    comboBoxGroups.DataSource = groups;
-                    comboBoxGroups.DisplayMember = "group";
-                    comboBoxGroups.ValueMember = "id";
-                    reader.Close();
                 }
-                comboBoxGroups.SelectedIndex = -1;
+                
+                reader.Close();
             }
-            catch
-            {
 
-            }
         }
     }
 }

@@ -131,6 +131,12 @@
     <Compile Include="StudentsList.Designer.cs">
       <DependentUpon>StudentsList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table.Designer.cs">
+      <DependentUpon>Table.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddFaculty.resx">
       <DependentUpon>AddFaculty.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +184,9 @@
     </Compile>
     <EmbeddedResource Include="StudentsList.resx">
       <DependentUpon>StudentsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table.resx">
+      <DependentUpon>Table.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="JournalDataDataSet.xsc">
       <DependentUpon>JournalDataDataSet.xsd</DependentUpon>

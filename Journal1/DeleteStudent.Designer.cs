@@ -32,15 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteStudent));
             this.labelGroup = new System.Windows.Forms.Label();
             this.facultiesComboBox = new System.Windows.Forms.ComboBox();
-            this.labelInstruction = new System.Windows.Forms.Label();
-            this.journalDataDataSet = new Journal1.JournalDataDataSet();
             this.facultiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.journalDataDataSet = new Journal1.JournalDataDataSet();
+            this.labelInstruction = new System.Windows.Forms.Label();
             this.facultiesTableAdapter = new Journal1.JournalDataDataSetTableAdapters.FacultiesTableAdapter();
             this.comboBoxGroups = new System.Windows.Forms.ComboBox();
             this.listBoxStudents = new System.Windows.Forms.ListBox();
             this.buttonDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.journalDataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultiesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.journalDataDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // labelGroup
@@ -55,16 +55,23 @@
             // 
             // facultiesComboBox
             // 
-            this.facultiesComboBox.DataSource = this.facultiesBindingSource;
-            this.facultiesComboBox.DisplayMember = "Факультет";
             this.facultiesComboBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesComboBox.FormattingEnabled = true;
             this.facultiesComboBox.Location = new System.Drawing.Point(296, 19);
             this.facultiesComboBox.Name = "facultiesComboBox";
             this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
             this.facultiesComboBox.TabIndex = 7;
-            this.facultiesComboBox.ValueMember = "Id";
             this.facultiesComboBox.SelectedIndexChanged += new System.EventHandler(this.facultiesComboBox_SelectedIndexChanged);
+            // 
+            // facultiesBindingSource
+            // 
+            this.facultiesBindingSource.DataMember = "Faculties";
+            this.facultiesBindingSource.DataSource = this.journalDataDataSet;
+            // 
+            // journalDataDataSet
+            // 
+            this.journalDataDataSet.DataSetName = "JournalDataDataSet";
+            this.journalDataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // labelInstruction
             // 
@@ -76,16 +83,6 @@
             this.labelInstruction.Size = new System.Drawing.Size(208, 23);
             this.labelInstruction.TabIndex = 6;
             this.labelInstruction.Text = "Выберите факультет";
-            // 
-            // journalDataDataSet
-            // 
-            this.journalDataDataSet.DataSetName = "JournalDataDataSet";
-            this.journalDataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // facultiesBindingSource
-            // 
-            this.facultiesBindingSource.DataMember = "Faculties";
-            this.facultiesBindingSource.DataSource = this.journalDataDataSet;
             // 
             // facultiesTableAdapter
             // 
@@ -143,8 +140,8 @@
             this.Name = "DeleteStudent";
             this.Text = "Удалить студента";
             this.Load += new System.EventHandler(this.DeleteStudent_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.journalDataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultiesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.journalDataDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -20,7 +20,18 @@ namespace Journal1
         int weekDaySelected;
         string connectionString = @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
         bool exist = true;
-        
+
+        public class Faculties
+        {
+            public string Id { get; set; }
+            public string Faculty { get; set; }
+            public Faculties(object id, object faculty)
+            {
+                this.Id = id.ToString();
+                this.Faculty = faculty.ToString();
+            }
+        }
+
         public class Groups
         {
             public string Id { get; set; }
@@ -31,6 +42,7 @@ namespace Journal1
                 this.Group = Convert.ToInt32(group);
             }
         }
+
         public class Subjects
         {
             public string Id { get; set; }
@@ -41,17 +53,10 @@ namespace Journal1
                 this.Subject = subject.ToString();
             }
         }
+
         public AddSchedule()
         {
             InitializeComponent();
-        }
-
-        private void weekBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.weekBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.journalDataDataSet);
-
         }
 
         private void AddSchedule_Load(object sender, EventArgs e)
@@ -60,8 +65,6 @@ namespace Journal1
             this.typeOfClassTableAdapter.Fill(this.journalDataDataSet.TypeOfClass);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Subjects". При необходимости она может быть перемещена или удалена.
             this.subjectsTableAdapter.Fill(this.journalDataDataSet.Subjects);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Faculties". При необходимости она может быть перемещена или удалена.
-            this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Weekday". При необходимости она может быть перемещена или удалена.
             this.weekdayTableAdapter.Fill(this.journalDataDataSet.Weekday);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Week". При необходимости она может быть перемещена или удалена.
@@ -80,12 +83,13 @@ namespace Journal1
             typeOfClassComboBox3.Hide();
             typeOfClassComboBox4.Hide();
             buttonAddSubject.Hide();
+            LoadFaculties();
             labelName.Hide();
             try
             {
                 facultiesComboBox.SelectedIndex = -1;
                 weekComboBox.SelectedIndex = -1;
-                weekdayComboBox.SelectedIndex=-1;
+                weekdayComboBox.SelectedIndex = -1;
             }
             catch { }
         }
@@ -95,17 +99,43 @@ namespace Journal1
             try
             {
                 facultySelected = facultiesComboBox.SelectedValue.ToString();
-                
-                Group();
+                LoadGroups();
             }
             catch { }
         }
-        public void Group()
+
+        public void LoadFaculties()
+        {
+            string sqlExpression = "SELECT * FROM Faculties ORDER BY Факультет";
+            List<Faculties> listFaculties = new List<Faculties>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        object id = reader.GetValue(0);
+                        object faculty = reader.GetValue(1);
+                        listFaculties.Add(new Faculties(id, faculty));
+                    }
+                }
+                facultiesComboBox.DataSource = listFaculties;
+                facultiesComboBox.DisplayMember = "faculty";
+                facultiesComboBox.ValueMember = "id";
+                reader.Close();
+            }
+
+        }
+
+        public void LoadGroups()
         {
             try
             {
                 ArrayList groups = new ArrayList();
-                string sqlExpression = "SELECT * FROM Groups";
+                string sqlExpression = "SELECT * FROM Groups ORDER BY Группа";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -143,7 +173,7 @@ namespace Journal1
             weekSelected = Convert.ToInt32(weekComboBox.SelectedValue);
             weekDaySelected = Convert.ToInt32(weekdayComboBox.SelectedValue);
             groupSelected = comboBoxGroups.SelectedValue.ToString();
-            string sqlExpression = "SELECT * FROM Schedule";
+            string sqlExpression = "SELECT * FROM Schedule ORDER BY Предмет";
             bool fl = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -221,6 +251,7 @@ namespace Journal1
                 Change();
             }
         }
+
         public void Delete(string idS)
         {
             Guid id = new Guid(idS);
@@ -235,6 +266,7 @@ namespace Journal1
             }
 
         }
+
         public void Change()
         {
             try
@@ -340,6 +372,7 @@ namespace Journal1
             }
             catch { }
         }
+
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             try 
@@ -367,6 +400,7 @@ namespace Journal1
                 MessageBox.Show("Заполните предмет и тип занятия");
             }
         }
+
         public void Insert(int cl, string sub, int type)
         {
             string sqlExpression = String.Format("INSERT INTO Schedule (Неделя, День_недели, Пара, Группа, Предмет, Тип_занятия) VALUES (@week, @weekday ,@class,@group,@subject,@type)");
@@ -410,7 +444,7 @@ namespace Journal1
             {
                 AddGroupWithoutStudents withoutStudents = new AddGroupWithoutStudents();
                 withoutStudents.ShowDialog();
-                Group();
+                LoadGroups();
                 withoutStudents.Close();
 
             }
@@ -424,6 +458,7 @@ namespace Journal1
             addSubject.Close();
             Subj();
         }
+
         public void Subj()
         {
             try
@@ -437,7 +472,7 @@ namespace Journal1
                 ArrayList subjects3 = new ArrayList();
                 ArrayList subjects4 = new ArrayList();
                 string facultySelected = facultiesComboBox.SelectedValue.ToString();
-                string sqlExpression = "SELECT * FROM Subjects";
+                string sqlExpression = "SELECT * FROM Subjects ORDER BY Предмет";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();

@@ -30,6 +30,7 @@ namespace Journal1
 
         private void Mark_Load(object sender, EventArgs e)
         {
+            String n = "";
             day = new DateTime(day.Year, day.Month, day.Day, 0, 0, 0);
             try
             {
@@ -47,7 +48,7 @@ namespace Journal1
                             object faculty = reader.GetValue(1);
                             if (id.ToString() == facultySelected)
                             {
-                                labelName.Text = faculty.ToString()+" ";
+                                n = faculty.ToString()+" ";
                             }
                         }
                     }
@@ -67,13 +68,14 @@ namespace Journal1
                             object group = reader.GetValue(2);
                             if (id.ToString() == groupSelected)
                             {
-                                labelName.Text = labelName.Text+" "+group.ToString()+" группа ";
+                                n = n +" "+group.ToString()+" группа ";
                             }
                         }
                     }
                     reader.Close();
                 }
-                labelName.Text = labelName.Text + day.ToShortDateString()+" "+cl.ToString()+" пара";
+                labelName.Text = n;
+                this.Text =  day.ToShortDateString()+ " | " + cl.ToString()+" пара";
                 string sqlExpression = "SELECT * FROM Students";
                 int row = 0;
                 using (SqlConnection connection = new SqlConnection(connectionString))

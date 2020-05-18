@@ -14,6 +14,17 @@ namespace Journal1
 {
     public partial class AddStudent : Form
     {
+        public class Faculties
+        {
+            public string Id { get; set; }
+            public string Faculty { get; set; }
+            public Faculties(object id, object faculty)
+            {
+                this.Id = id.ToString();
+                this.Faculty = faculty.ToString();
+            }
+        }
+
         public class Groups
         {
             public string Id { get; set; }
@@ -31,26 +42,23 @@ namespace Journal1
             InitializeComponent();
         }
 
-        private void facultiesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.facultiesBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.journalDataDataSet);
-
-        }
-
         private void AddStudent_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Groups". При необходимости она может быть перемещена или удалена.
             this.groupsTableAdapter.Fill(this.journalDataDataSet.Groups);
-            this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+            LoadFaculties();
             try
             {
                 facultiesComboBox.SelectedIndex = -1;
-                comboBoxGroups.SelectedIndex = -1;
             }
             catch
             { }
+        }
+
+        private void facultiesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            facultySelected = facultiesComboBox.SelectedValue.ToString();
+            LoadGroup();
         }
 
         private void buttonNext_Click(object sender, EventArgs e)
@@ -80,27 +88,43 @@ namespace Journal1
                 }
                 this.Close();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Заполните все поля");
             }
         }
-
-        private void facultiesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        public void LoadFaculties()
         {
-            try
+            string sqlExpression = "SELECT * FROM Faculties ORDER BY Факультет";
+            List<Faculties> listFaculties = new List<Faculties>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                facultySelected = facultiesComboBox.SelectedValue.ToString();
-                LoadGroup();
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        object id = reader.GetValue(0);
+                        object faculty = reader.GetValue(1);
+                        listFaculties.Add(new Faculties(id, faculty));
+                    }
+                }
+                facultiesComboBox.DataSource = listFaculties;
+                facultiesComboBox.DisplayMember = "faculty";
+                facultiesComboBox.ValueMember = "id";
+                reader.Close();
             }
-            catch { }
+
         }
+
         public void LoadGroup()
         {
             try
             {
                 ArrayList groups = new ArrayList();
-                string sqlExpression = "SELECT * FROM Groups";
+                string sqlExpression = "SELECT * FROM Groups ORDER BY Группа";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -132,6 +156,7 @@ namespace Journal1
             }
 
         }
+
         private void buttonAddFaculty_Click(object sender, EventArgs e)
         {
             try
@@ -139,7 +164,7 @@ namespace Journal1
                 AddFaculty addFaculty = new AddFaculty();
                 addFaculty.ShowDialog();
                 addFaculty.Close();
-                this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+                LoadFaculties();
                 facultiesComboBox.SelectedIndex = -1;
             }
             catch { }
@@ -152,13 +177,12 @@ namespace Journal1
                 AddGroupWithoutStudents withoutStudents = new AddGroupWithoutStudents();
                 withoutStudents.ShowDialog();
                 LoadGroup();
-                this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
-                facultiesComboBox.SelectedIndex = -1;
+                LoadGroup();
                 withoutStudents.Close();
-                
-                
             }
             catch { }
         }
+
+        
     }
 }

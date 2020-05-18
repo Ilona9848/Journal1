@@ -14,6 +14,16 @@ namespace Journal1
 {
     public partial class DeleteGroup : Form
     {
+        public class Faculties
+        {
+            public string Id { get; set; }
+            public string Faculty { get; set; }
+            public Faculties(object id, object faculty)
+            {
+                this.Id = id.ToString();
+                this.Faculty = faculty.ToString();
+            }
+        }
         public class Groups
         {
             public string Id { get; set; }
@@ -35,7 +45,7 @@ namespace Journal1
             try
             {
                 ArrayList groups = new ArrayList();
-                string sqlExpression = "SELECT * FROM Groups";
+                string sqlExpression = "SELECT * FROM Groups ORDER BY Группа";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -77,7 +87,7 @@ namespace Journal1
         private void DeleteGroup_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Faculties". При необходимости она может быть перемещена или удалена.
-            this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+            LoadFaculties();
             try
             {
                 facultiesComboBox.SelectedIndex = -1;
@@ -116,6 +126,32 @@ namespace Journal1
                 }
             }
             catch { }
+        }
+
+        public void LoadFaculties()
+        {
+            string sqlExpression = "SELECT * FROM Faculties ORDER BY Факультет";
+            List<Faculties> listFaculties = new List<Faculties>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        object id = reader.GetValue(0);
+                        object faculty = reader.GetValue(1);
+                        listFaculties.Add(new Faculties(id, faculty));
+                    }
+                }
+                facultiesComboBox.DataSource = listFaculties;
+                facultiesComboBox.DisplayMember = "faculty";
+                facultiesComboBox.ValueMember = "id";
+                reader.Close();
+            }
+
         }
     }
 }

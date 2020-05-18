@@ -38,20 +38,5 @@ namespace Journal1
                 this.Close();
             }
         }
-
-        private void labelInstruction_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelExample_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxFaculty_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

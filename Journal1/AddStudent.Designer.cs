@@ -165,15 +165,12 @@
             // 
             // facultiesComboBox
             // 
-            this.facultiesComboBox.DataSource = this.facultiesBindingSource1;
-            this.facultiesComboBox.DisplayMember = "Факультет";
             this.facultiesComboBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesComboBox.FormattingEnabled = true;
-            this.facultiesComboBox.Location = new System.Drawing.Point(187, 221);
+            this.facultiesComboBox.Location = new System.Drawing.Point(187, 220);
             this.facultiesComboBox.Name = "facultiesComboBox";
             this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
             this.facultiesComboBox.TabIndex = 8;
-            this.facultiesComboBox.ValueMember = "Id";
             this.facultiesComboBox.SelectedIndexChanged += new System.EventHandler(this.facultiesComboBox_SelectedIndexChanged);
             // 
             // comboBoxGroups

@@ -44,8 +44,6 @@
             this.facultiesComboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBoxGroups1 = new System.Windows.Forms.ComboBox();
             this.buttonChange = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.journalDataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultiesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultiesBindingSource1)).BeginInit();
@@ -91,15 +89,12 @@
             // 
             // facultiesComboBox
             // 
-            this.facultiesComboBox.DataSource = this.facultiesBindingSource;
-            this.facultiesComboBox.DisplayMember = "Факультет";
             this.facultiesComboBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesComboBox.FormattingEnabled = true;
             this.facultiesComboBox.Location = new System.Drawing.Point(264, 63);
             this.facultiesComboBox.Name = "facultiesComboBox";
             this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
             this.facultiesComboBox.TabIndex = 2;
-            this.facultiesComboBox.ValueMember = "Id";
             this.facultiesComboBox.SelectedIndexChanged += new System.EventHandler(this.facultiesComboBox_SelectedIndexChanged);
             // 
             // labelGroup
@@ -141,7 +136,7 @@
             this.listBoxStudents.Name = "listBoxStudents";
             this.listBoxStudents.Size = new System.Drawing.Size(332, 257);
             this.listBoxStudents.TabIndex = 6;
-            this.listBoxStudents.Click += new System.EventHandler(this.listBoxStudents_Click);
+            this.listBoxStudents.DoubleClick += new System.EventHandler(this.listBoxStudents_DoubleClick);
             // 
             // facultiesBindingSource1
             // 
@@ -150,15 +145,12 @@
             // 
             // facultiesComboBox1
             // 
-            this.facultiesComboBox1.DataSource = this.facultiesBindingSource1;
-            this.facultiesComboBox1.DisplayMember = "Факультет";
             this.facultiesComboBox1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesComboBox1.FormattingEnabled = true;
             this.facultiesComboBox1.Location = new System.Drawing.Point(264, 63);
             this.facultiesComboBox1.Name = "facultiesComboBox1";
             this.facultiesComboBox1.Size = new System.Drawing.Size(300, 31);
             this.facultiesComboBox1.TabIndex = 6;
-            this.facultiesComboBox1.ValueMember = "Id";
             this.facultiesComboBox1.SelectedIndexChanged += new System.EventHandler(this.facultiesComboBox1_SelectedIndexChanged);
             // 
             // comboBoxGroups1
@@ -177,38 +169,13 @@
             this.buttonChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonChange.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonChange.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonChange.Location = new System.Drawing.Point(505, 376);
+            this.buttonChange.Location = new System.Drawing.Point(366, 399);
             this.buttonChange.Name = "buttonChange";
             this.buttonChange.Size = new System.Drawing.Size(220, 35);
             this.buttonChange.TabIndex = 8;
             this.buttonChange.Text = "Перевести студента";
             this.buttonChange.UseVisualStyleBackColor = false;
             this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(586, 96);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 23);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "или";
-            // 
-            // buttonNew
-            // 
-            this.buttonNew.AutoSize = true;
-            this.buttonNew.BackColor = System.Drawing.Color.SlateBlue;
-            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNew.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonNew.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonNew.Location = new System.Drawing.Point(647, 96);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(99, 35);
-            this.buttonNew.TabIndex = 10;
-            this.buttonNew.Text = "Создать";
-            this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // ChangeFaculty
             // 
@@ -217,8 +184,6 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(943, 461);
-            this.Controls.Add(this.buttonNew);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonChange);
             this.Controls.Add(this.comboBoxGroups1);
             this.Controls.Add(this.facultiesComboBox1);
@@ -256,7 +221,5 @@
         private System.Windows.Forms.ComboBox facultiesComboBox1;
         private System.Windows.Forms.ComboBox comboBoxGroups1;
         private System.Windows.Forms.Button buttonChange;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonNew;
     }
 }

@@ -70,8 +70,6 @@
             // 
             // facultiesListBox
             // 
-            this.facultiesListBox.DataSource = this.facultiesBindingSource;
-            this.facultiesListBox.DisplayMember = "Факультет";
             this.facultiesListBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesListBox.FormattingEnabled = true;
             this.facultiesListBox.ItemHeight = 23;
@@ -80,7 +78,6 @@
             this.facultiesListBox.Name = "facultiesListBox";
             this.facultiesListBox.Size = new System.Drawing.Size(300, 303);
             this.facultiesListBox.TabIndex = 1;
-            this.facultiesListBox.ValueMember = "Id";
             // 
             // buttonDelete
             // 

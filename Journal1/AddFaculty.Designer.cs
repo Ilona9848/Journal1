@@ -45,7 +45,6 @@
             this.labelInstruction.Size = new System.Drawing.Size(318, 23);
             this.labelInstruction.TabIndex = 1;
             this.labelInstruction.Text = "Введите название факультета.";
-            this.labelInstruction.Click += new System.EventHandler(this.labelInstruction_Click);
             // 
             // labelExample
             // 
@@ -57,7 +56,6 @@
             this.labelExample.Size = new System.Drawing.Size(626, 23);
             this.labelExample.TabIndex = 2;
             this.labelExample.Text = "Пример: факультет математики и информационных технологий";
-            this.labelExample.Click += new System.EventHandler(this.labelExample_Click);
             // 
             // textBoxFaculty
             // 
@@ -66,7 +64,6 @@
             this.textBoxFaculty.Name = "textBoxFaculty";
             this.textBoxFaculty.Size = new System.Drawing.Size(364, 31);
             this.textBoxFaculty.TabIndex = 3;
-            this.textBoxFaculty.TextChanged += new System.EventHandler(this.textBoxFaculty_TextChanged);
             // 
             // buttonNext
             // 

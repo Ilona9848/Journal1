@@ -49,11 +49,12 @@
             this.ColumnSurname,
             this.ColumnName,
             this.ColumnAttendance});
-            this.dataGridView1.Location = new System.Drawing.Point(21, 102);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 46);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(516, 336);
+            this.dataGridView1.Size = new System.Drawing.Size(516, 404);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColumnId
@@ -105,8 +106,9 @@
             // labelInstr
             // 
             this.labelInstr.AutoSize = true;
+            this.labelInstr.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelInstr.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstr.Location = new System.Drawing.Point(17, 62);
+            this.labelInstr.Location = new System.Drawing.Point(0, 23);
             this.labelInstr.Name = "labelInstr";
             this.labelInstr.Size = new System.Drawing.Size(252, 23);
             this.labelInstr.TabIndex = 2;
@@ -115,8 +117,10 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelName.Location = new System.Drawing.Point(17, 23);
+            this.labelName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelName.Font = new System.Drawing.Font("Consolas", 10F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelName.Location = new System.Drawing.Point(0, 0);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(252, 23);
             this.labelName.TabIndex = 3;
@@ -129,10 +133,10 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.labelName);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelInstr);
             this.Controls.Add(this.buttonMark);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.labelName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Mark";
             this.Text = "Посещаемость";

@@ -13,26 +13,53 @@ namespace Journal1
 {
     public partial class DeleteFaculty : Form
     {
+        public class Faculties
+        {
+            public string Id { get; set; }
+            public string Faculty { get; set; }
+            public Faculties(object id, object faculty)
+            {
+                this.Id = id.ToString();
+                this.Faculty = faculty.ToString();
+            }
+        }
+
         public DeleteFaculty()
         {
             InitializeComponent();
         }
         string connectionString = @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
-        private void facultiesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.facultiesBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.journalDataDataSet);
-
-        }
 
         private void DeleteFaculty_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Faculties". При необходимости она может быть перемещена или удалена.
-            this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
+            LoadFaculties();
 
         }
+        public void LoadFaculties()
+        {
+            string sqlExpression = "SELECT * FROM Faculties ORDER BY Факультет";
+            List<Faculties> listFaculties = new List<Faculties>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        object id = reader.GetValue(0);
+                        object faculty = reader.GetValue(1);
+                        listFaculties.Add(new Faculties(id, faculty));
+                    }
+                }
+                facultiesListBox.DataSource = listFaculties;
+                facultiesListBox.DisplayMember = "faculty";
+                facultiesListBox.ValueMember = "id";
+                reader.Close();
+            }
 
+        }
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             try
