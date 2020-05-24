@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Journal1
 {
@@ -24,9 +25,37 @@ namespace Journal1
             }
         }
 
-        string connectionString = @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
+        string connectionString;
         string facultySelected;
-
+        public void FindDataBase()
+        {
+            string ds = "";
+            string ic = "";
+            string id = "";
+            string pas = "";
+            string ins = "";
+            using (StreamReader sr = new StreamReader("config.txt"))
+            {
+                while (!sr.EndOfStream)
+                {
+                    string[] s = sr.ReadLine().Split('=');
+                    if (s[0] == "Data Source")
+                        ds = s[1];
+                    if (s[0] == "Initial Catalog")
+                        ic = s[1];
+                    if (s[0] == "Integrated Security")
+                        ins = s[1];
+                    if (s[0] == "User ID")
+                        id = s[1];
+                    if (s[0] == "Password")
+                        pas = s[1];
+                }
+            }
+            if (id != "")
+                connectionString = String.Format(@"Data Source={0};Initial Catalog={1};User Id = {2}; Password = {3}", ds, ic, id, pas);
+            else
+                connectionString = String.Format(@"Data Source={0};Initial Catalog={1};Integrated Security={2}", ds, ic, ins);
+        }
         public AddGroupWithoutStudents()
         {
             InitializeComponent();
@@ -34,6 +63,7 @@ namespace Journal1
 
         private void AddGroupWithoutStudents_Load(object sender, EventArgs e)
         {
+            FindDataBase();
             LoadFaculties();
             try
             {

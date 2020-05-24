@@ -128,7 +128,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(44, 252);
+            this.label5.Location = new System.Drawing.Point(44, 257);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 23);
             this.label5.TabIndex = 4;
@@ -169,7 +169,7 @@
             this.facultiesComboBox.FormattingEnabled = true;
             this.facultiesComboBox.Location = new System.Drawing.Point(187, 220);
             this.facultiesComboBox.Name = "facultiesComboBox";
-            this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
+            this.facultiesComboBox.Size = new System.Drawing.Size(470, 31);
             this.facultiesComboBox.TabIndex = 8;
             this.facultiesComboBox.SelectedIndexChanged += new System.EventHandler(this.facultiesComboBox_SelectedIndexChanged);
             // 
@@ -177,7 +177,7 @@
             // 
             this.comboBoxGroups.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxGroups.FormattingEnabled = true;
-            this.comboBoxGroups.Location = new System.Drawing.Point(187, 256);
+            this.comboBoxGroups.Location = new System.Drawing.Point(187, 254);
             this.comboBoxGroups.Name = "comboBoxGroups";
             this.comboBoxGroups.Size = new System.Drawing.Size(121, 31);
             this.comboBoxGroups.TabIndex = 9;
@@ -188,7 +188,7 @@
             this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonNext.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonNext.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonNext.Location = new System.Drawing.Point(680, 12);
+            this.buttonNext.Location = new System.Drawing.Point(839, 12);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(108, 40);
             this.buttonNext.TabIndex = 11;
@@ -203,7 +203,7 @@
             this.buttonAddFaculty.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAddFaculty.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAddFaculty.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonAddFaculty.Location = new System.Drawing.Point(504, 218);
+            this.buttonAddFaculty.Location = new System.Drawing.Point(663, 218);
             this.buttonAddFaculty.Name = "buttonAddFaculty";
             this.buttonAddFaculty.Size = new System.Drawing.Size(284, 33);
             this.buttonAddFaculty.TabIndex = 16;
@@ -218,7 +218,7 @@
             this.buttonAddGroup.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAddGroup.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAddGroup.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonAddGroup.Location = new System.Drawing.Point(504, 257);
+            this.buttonAddGroup.Location = new System.Drawing.Point(663, 252);
             this.buttonAddGroup.Name = "buttonAddGroup";
             this.buttonAddGroup.Size = new System.Drawing.Size(284, 33);
             this.buttonAddGroup.TabIndex = 17;
@@ -241,7 +241,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(808, 450);
+            this.ClientSize = new System.Drawing.Size(987, 450);
             this.Controls.Add(this.buttonAddGroup);
             this.Controls.Add(this.buttonAddFaculty);
             this.Controls.Add(this.buttonNext);

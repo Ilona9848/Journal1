@@ -63,9 +63,9 @@
             // textBoxSubject
             // 
             this.textBoxSubject.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxSubject.Location = new System.Drawing.Point(130, 164);
+            this.textBoxSubject.Location = new System.Drawing.Point(16, 107);
             this.textBoxSubject.Name = "textBoxSubject";
-            this.textBoxSubject.Size = new System.Drawing.Size(364, 31);
+            this.textBoxSubject.Size = new System.Drawing.Size(560, 31);
             this.textBoxSubject.TabIndex = 10;
             // 
             // labelExample
@@ -73,7 +73,7 @@
             this.labelExample.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelExample.AutoSize = true;
             this.labelExample.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelExample.Location = new System.Drawing.Point(140, 113);
+            this.labelExample.Location = new System.Drawing.Point(12, 66);
             this.labelExample.Name = "labelExample";
             this.labelExample.Size = new System.Drawing.Size(329, 23);
             this.labelExample.TabIndex = 9;
@@ -84,7 +84,7 @@
             this.labelInstruction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelInstruction.AutoSize = true;
             this.labelInstruction.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstruction.Location = new System.Drawing.Point(181, 68);
+            this.labelInstruction.Location = new System.Drawing.Point(12, 26);
             this.labelInstruction.Name = "labelInstruction";
             this.labelInstruction.Size = new System.Drawing.Size(296, 23);
             this.labelInstruction.TabIndex = 8;
@@ -95,7 +95,7 @@
             this.labelInstr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelInstr.AutoSize = true;
             this.labelInstr.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstr.Location = new System.Drawing.Point(196, 264);
+            this.labelInstr.Location = new System.Drawing.Point(12, 161);
             this.labelInstr.Name = "labelInstr";
             this.labelInstr.Size = new System.Drawing.Size(208, 23);
             this.labelInstr.TabIndex = 11;
@@ -133,9 +133,9 @@
             // 
             this.facultiesComboBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesComboBox.FormattingEnabled = true;
-            this.facultiesComboBox.Location = new System.Drawing.Point(145, 322);
+            this.facultiesComboBox.Location = new System.Drawing.Point(16, 214);
             this.facultiesComboBox.Name = "facultiesComboBox";
-            this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
+            this.facultiesComboBox.Size = new System.Drawing.Size(670, 31);
             this.facultiesComboBox.TabIndex = 12;
             // 
             // buttonAddFaculty
@@ -145,7 +145,7 @@
             this.buttonAddFaculty.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAddFaculty.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAddFaculty.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonAddFaculty.Location = new System.Drawing.Point(176, 439);
+            this.buttonAddFaculty.Location = new System.Drawing.Point(16, 328);
             this.buttonAddFaculty.Name = "buttonAddFaculty";
             this.buttonAddFaculty.Size = new System.Drawing.Size(218, 40);
             this.buttonAddFaculty.TabIndex = 13;
@@ -157,7 +157,7 @@
             // 
             this.labelInstr3.AutoSize = true;
             this.labelInstr3.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstr3.Location = new System.Drawing.Point(61, 389);
+            this.labelInstr3.Location = new System.Drawing.Point(12, 275);
             this.labelInstr3.Name = "labelInstr3";
             this.labelInstr3.Size = new System.Drawing.Size(560, 23);
             this.labelInstr3.TabIndex = 14;

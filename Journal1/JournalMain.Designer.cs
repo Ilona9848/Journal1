@@ -115,7 +115,6 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.menuStrip1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemBack,
@@ -126,7 +125,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(14, 5, 0, 5);
-            this.menuStrip1.Size = new System.Drawing.Size(852, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(852, 37);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip";
             // 
@@ -134,7 +133,7 @@
             // 
             this.ToolStripMenuItemBack.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuItemBack.Name = "ToolStripMenuItemBack";
-            this.ToolStripMenuItemBack.Size = new System.Drawing.Size(312, 28);
+            this.ToolStripMenuItemBack.Size = new System.Drawing.Size(312, 27);
             this.ToolStripMenuItemBack.Text = "Вернуться на главный экран";
             this.ToolStripMenuItemBack.Click += new System.EventHandler(this.ToolStripMenuItemBack_Click);
             // 
@@ -147,7 +146,7 @@
             this.ToolStripMenuItemTable});
             this.ToolStripMenuItemOpen.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuItemOpen.Name = "ToolStripMenuItemOpen";
-            this.ToolStripMenuItemOpen.Size = new System.Drawing.Size(103, 28);
+            this.ToolStripMenuItemOpen.Size = new System.Drawing.Size(103, 27);
             this.ToolStripMenuItemOpen.Text = "Открыть";
             // 
             // ToolStripMenuItemFacultiesList
@@ -193,14 +192,14 @@
             this.ToolStripMenuItemAddSchedule});
             this.ToolStripMenuItemAdd.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuItemAdd.Name = "ToolStripMenuItemAdd";
-            this.ToolStripMenuItemAdd.Size = new System.Drawing.Size(114, 28);
+            this.ToolStripMenuItemAdd.Size = new System.Drawing.Size(114, 27);
             this.ToolStripMenuItemAdd.Text = "Добавить";
             // 
             // ToolStripMenuItemAddFaculty
             // 
             this.ToolStripMenuItemAddFaculty.BackColor = System.Drawing.Color.Thistle;
             this.ToolStripMenuItemAddFaculty.Name = "ToolStripMenuItemAddFaculty";
-            this.ToolStripMenuItemAddFaculty.Size = new System.Drawing.Size(220, 34);
+            this.ToolStripMenuItemAddFaculty.Size = new System.Drawing.Size(270, 34);
             this.ToolStripMenuItemAddFaculty.Text = "факультет";
             this.ToolStripMenuItemAddFaculty.Click += new System.EventHandler(this.ToolStripMenuItemAddFaculty_Click);
             // 
@@ -208,7 +207,7 @@
             // 
             this.ToolStripMenuItemAddGroup.BackColor = System.Drawing.Color.Thistle;
             this.ToolStripMenuItemAddGroup.Name = "ToolStripMenuItemAddGroup";
-            this.ToolStripMenuItemAddGroup.Size = new System.Drawing.Size(220, 34);
+            this.ToolStripMenuItemAddGroup.Size = new System.Drawing.Size(270, 34);
             this.ToolStripMenuItemAddGroup.Text = "группу";
             this.ToolStripMenuItemAddGroup.Click += new System.EventHandler(this.ToolStripMenuItemAddGroup_Click);
             // 
@@ -216,7 +215,7 @@
             // 
             this.ToolStripMenuItemAddStudent.BackColor = System.Drawing.Color.Thistle;
             this.ToolStripMenuItemAddStudent.Name = "ToolStripMenuItemAddStudent";
-            this.ToolStripMenuItemAddStudent.Size = new System.Drawing.Size(220, 34);
+            this.ToolStripMenuItemAddStudent.Size = new System.Drawing.Size(270, 34);
             this.ToolStripMenuItemAddStudent.Text = "студента";
             this.ToolStripMenuItemAddStudent.Click += new System.EventHandler(this.ToolStripMenuItemAddStudent_Click);
             // 
@@ -224,7 +223,7 @@
             // 
             this.ToolStripMenuItemAddSubject.BackColor = System.Drawing.Color.Thistle;
             this.ToolStripMenuItemAddSubject.Name = "ToolStripMenuItemAddSubject";
-            this.ToolStripMenuItemAddSubject.Size = new System.Drawing.Size(220, 34);
+            this.ToolStripMenuItemAddSubject.Size = new System.Drawing.Size(270, 34);
             this.ToolStripMenuItemAddSubject.Text = "предмет";
             this.ToolStripMenuItemAddSubject.Click += new System.EventHandler(this.ToolStripMenuItemAddSubject_Click);
             // 
@@ -232,7 +231,7 @@
             // 
             this.ToolStripMenuItemAddSchedule.BackColor = System.Drawing.Color.Thistle;
             this.ToolStripMenuItemAddSchedule.Name = "ToolStripMenuItemAddSchedule";
-            this.ToolStripMenuItemAddSchedule.Size = new System.Drawing.Size(220, 34);
+            this.ToolStripMenuItemAddSchedule.Size = new System.Drawing.Size(270, 34);
             this.ToolStripMenuItemAddSchedule.Text = "расписание";
             this.ToolStripMenuItemAddSchedule.Click += new System.EventHandler(this.ToolStripMenuItemAddSchedule_Click);
             // 
@@ -245,7 +244,7 @@
             this.ToolStripMenuItemDeleteSubject});
             this.ToolStripMenuItemDelete.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuItemDelete.Name = "ToolStripMenuItemDelete";
-            this.ToolStripMenuItemDelete.Size = new System.Drawing.Size(103, 28);
+            this.ToolStripMenuItemDelete.Size = new System.Drawing.Size(103, 27);
             this.ToolStripMenuItemDelete.Text = "Удалить";
             // 
             // ToolStripMenuItemDeleteFaculty
@@ -284,7 +283,7 @@
             // 
             this.ToolStripMenuItemChange.ForeColor = System.Drawing.Color.Black;
             this.ToolStripMenuItemChange.Name = "ToolStripMenuItemChange";
-            this.ToolStripMenuItemChange.Size = new System.Drawing.Size(202, 28);
+            this.ToolStripMenuItemChange.Size = new System.Drawing.Size(202, 27);
             this.ToolStripMenuItemChange.Text = "Перевод студента";
             this.ToolStripMenuItemChange.Click += new System.EventHandler(this.ToolStripMenuItemChange_Click);
             // 
@@ -332,13 +331,13 @@
             // 
             // listBoxGroups
             // 
-            this.listBoxGroups.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listBoxGroups.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxGroups.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxGroups.FormattingEnabled = true;
             this.listBoxGroups.ItemHeight = 23;
-            this.listBoxGroups.Location = new System.Drawing.Point(0, 107);
+            this.listBoxGroups.Location = new System.Drawing.Point(0, 106);
             this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(300, 433);
+            this.listBoxGroups.Size = new System.Drawing.Size(852, 348);
             this.listBoxGroups.TabIndex = 2;
             this.listBoxGroups.DoubleClick += new System.EventHandler(this.listBoxGroups_DoubleClick);
             // 
@@ -363,13 +362,13 @@
             // 
             // facultiesListBox
             // 
-            this.facultiesListBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.facultiesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.facultiesListBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesListBox.FormattingEnabled = true;
             this.facultiesListBox.ItemHeight = 23;
-            this.facultiesListBox.Location = new System.Drawing.Point(300, 107);
+            this.facultiesListBox.Location = new System.Drawing.Point(0, 106);
             this.facultiesListBox.Name = "facultiesListBox";
-            this.facultiesListBox.Size = new System.Drawing.Size(300, 433);
+            this.facultiesListBox.Size = new System.Drawing.Size(852, 348);
             this.facultiesListBox.TabIndex = 3;
             this.facultiesListBox.DoubleClick += new System.EventHandler(this.facultiesListBox_DoubleClick);
             // 
@@ -536,7 +535,7 @@
             this.labelFaculty.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelFaculty.Font = new System.Drawing.Font("Consolas", 10F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFaculty.Location = new System.Drawing.Point(0, 38);
+            this.labelFaculty.Location = new System.Drawing.Point(0, 37);
             this.labelFaculty.Name = "labelFaculty";
             this.labelFaculty.Size = new System.Drawing.Size(76, 23);
             this.labelFaculty.TabIndex = 33;
@@ -548,7 +547,7 @@
             this.labelGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelGroup.Font = new System.Drawing.Font("Consolas", 10F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGroup.Location = new System.Drawing.Point(0, 61);
+            this.labelGroup.Location = new System.Drawing.Point(0, 60);
             this.labelGroup.Name = "labelGroup";
             this.labelGroup.Size = new System.Drawing.Size(65, 23);
             this.labelGroup.TabIndex = 34;
@@ -582,7 +581,7 @@
             this.labelDate.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelDate.Font = new System.Drawing.Font("Consolas", 10F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDate.Location = new System.Drawing.Point(0, 84);
+            this.labelDate.Location = new System.Drawing.Point(0, 83);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(76, 23);
             this.labelDate.TabIndex = 37;
@@ -595,15 +594,12 @@
             // 
             // facultiesComboBox
             // 
-            this.facultiesComboBox.DataSource = this.facultiesBindingSource4;
-            this.facultiesComboBox.DisplayMember = "Факультет";
             this.facultiesComboBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesComboBox.FormattingEnabled = true;
             this.facultiesComboBox.Location = new System.Drawing.Point(0, 147);
             this.facultiesComboBox.Name = "facultiesComboBox";
-            this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
+            this.facultiesComboBox.Size = new System.Drawing.Size(720, 31);
             this.facultiesComboBox.TabIndex = 37;
-            this.facultiesComboBox.ValueMember = "Id";
             // 
             // buttonNextSubjects
             // 
@@ -620,23 +616,24 @@
             // 
             // listBoxSubjects
             // 
-            this.listBoxSubjects.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listBoxSubjects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxSubjects.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxSubjects.FormattingEnabled = true;
             this.listBoxSubjects.ItemHeight = 23;
-            this.listBoxSubjects.Location = new System.Drawing.Point(600, 107);
+            this.listBoxSubjects.Location = new System.Drawing.Point(0, 106);
             this.listBoxSubjects.Name = "listBoxSubjects";
-            this.listBoxSubjects.Size = new System.Drawing.Size(300, 433);
+            this.listBoxSubjects.Size = new System.Drawing.Size(852, 348);
             this.listBoxSubjects.TabIndex = 39;
             // 
             // buttonOpenGroups
             // 
             this.buttonOpenGroups.AutoSize = true;
             this.buttonOpenGroups.BackColor = System.Drawing.Color.MediumPurple;
+            this.buttonOpenGroups.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonOpenGroups.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOpenGroups.Location = new System.Drawing.Point(366, 267);
+            this.buttonOpenGroups.Location = new System.Drawing.Point(0, 497);
             this.buttonOpenGroups.Name = "buttonOpenGroups";
-            this.buttonOpenGroups.Size = new System.Drawing.Size(240, 43);
+            this.buttonOpenGroups.Size = new System.Drawing.Size(852, 43);
             this.buttonOpenGroups.TabIndex = 40;
             this.buttonOpenGroups.Text = "Открыть список групп";
             this.buttonOpenGroups.UseVisualStyleBackColor = false;
@@ -646,10 +643,11 @@
             // 
             this.buttonDate.AutoSize = true;
             this.buttonDate.BackColor = System.Drawing.Color.MediumPurple;
+            this.buttonDate.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonDate.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDate.Location = new System.Drawing.Point(366, 267);
+            this.buttonDate.Location = new System.Drawing.Point(0, 454);
             this.buttonDate.Name = "buttonDate";
-            this.buttonDate.Size = new System.Drawing.Size(240, 43);
+            this.buttonDate.Size = new System.Drawing.Size(852, 43);
             this.buttonDate.TabIndex = 41;
             this.buttonDate.Text = "Продолжить";
             this.buttonDate.UseVisualStyleBackColor = false;
@@ -662,9 +660,9 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(852, 540);
-            this.Controls.Add(this.listBoxSubjects);
-            this.Controls.Add(this.facultiesListBox);
             this.Controls.Add(this.listBoxGroups);
+            this.Controls.Add(this.facultiesListBox);
+            this.Controls.Add(this.listBoxSubjects);
             this.Controls.Add(this.buttonNextSubjects);
             this.Controls.Add(this.facultiesComboBox);
             this.Controls.Add(this.labelDate);

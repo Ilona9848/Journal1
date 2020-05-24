@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace Journal1
         }
 
         //Адрес сервера
-        string connectionString= @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
+        string connectionString;
 
         //Выбранные данные
         int weekdaySelected, weekSelected;
@@ -52,6 +53,7 @@ namespace Journal1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            FindDataBase();
             // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.TypeOfClass". При необходимости она может быть перемещена или удалена.
             this.typeOfClassTableAdapter.Fill(this.journalDataDataSet.TypeOfClass);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Subjects". При необходимости она может быть перемещена или удалена.
@@ -63,7 +65,35 @@ namespace Journal1
             Back();
             LoadFaculties();
         }
-        
+        public void FindDataBase()
+        {
+            string ds = "";
+            string ic = "";
+            string id = "";
+            string pas = "";
+            string ins = "";
+            using (StreamReader sr = new StreamReader("config.txt"))
+            {
+                while (!sr.EndOfStream)
+                {
+                    string[] s = sr.ReadLine().Split('=');
+                    if (s[0] == "Data Source")
+                        ds = s[1];
+                    if (s[0] == "Initial Catalog")
+                        ic = s[1];
+                    if (s[0] == "Integrated Security")
+                        ins = s[1];
+                    if (s[0] == "User ID")
+                        id = s[1];
+                    if (s[0] == "Password")
+                        pas = s[1];
+                }
+            }
+            if (id != "")
+                connectionString = String.Format(@"Data Source={0};Initial Catalog={1};User Id = {2}; Password = {3}", ds, ic, id, pas);
+            else
+                connectionString = String.Format(@"Data Source={0};Initial Catalog={1};Integrated Security={2}", ds, ic, ins);
+        }
         private void facultiesListBox_DoubleClick(object sender, EventArgs e)
         {
             OpenGroups();
@@ -184,6 +214,27 @@ namespace Journal1
             listBoxSubjects.Hide();
             buttonOpenGroups.Hide();
             buttonDate.Hide();
+            string sqlExpression = "SELECT * FROM Faculties ORDER BY Факультет";
+            List<Faculties> listFaculties = new List<Faculties>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        object id = reader.GetValue(0);
+                        object faculty = reader.GetValue(1);
+                        listFaculties.Add(new Faculties(id, faculty));
+                    }
+                }
+                facultiesComboBox.DataSource = listFaculties;
+                facultiesComboBox.DisplayMember = "faculty";
+                facultiesComboBox.ValueMember = "id";
+                reader.Close();
+            }
         }
        
         private void buttonNextSubjects_Click(object sender, EventArgs e)
@@ -192,10 +243,10 @@ namespace Journal1
             buttonNextSubjects.Hide();
             listBoxSubjects.Show();
             labelFaculty.Show();
-            string facultySelected = facultiesComboBox.SelectedValue.ToString();
+            facultySelected = facultiesComboBox.SelectedValue.ToString();
             try
             {
-                string sqlexpression1 = "SELECT * FROM Faculties";
+                string sqlexpression1 = "SELECT * FROM Faculties ORDER BY Факультет";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();

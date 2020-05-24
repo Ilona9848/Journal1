@@ -70,26 +70,28 @@
             // 
             // facultiesListBox
             // 
+            this.facultiesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.facultiesListBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesListBox.FormattingEnabled = true;
             this.facultiesListBox.ItemHeight = 23;
-            this.facultiesListBox.Location = new System.Drawing.Point(12, 66);
+            this.facultiesListBox.Location = new System.Drawing.Point(0, 0);
             this.facultiesListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.facultiesListBox.Name = "facultiesListBox";
-            this.facultiesListBox.Size = new System.Drawing.Size(300, 303);
+            this.facultiesListBox.Size = new System.Drawing.Size(800, 416);
             this.facultiesListBox.TabIndex = 1;
             // 
             // buttonDelete
             // 
             this.buttonDelete.AutoSize = true;
             this.buttonDelete.BackColor = System.Drawing.Color.SlateBlue;
+            this.buttonDelete.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonDelete.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonDelete.Location = new System.Drawing.Point(502, 192);
+            this.buttonDelete.Location = new System.Drawing.Point(0, 416);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(209, 35);
+            this.buttonDelete.Size = new System.Drawing.Size(800, 35);
             this.buttonDelete.TabIndex = 2;
             this.buttonDelete.Text = "Удалить факультет";
             this.buttonDelete.UseVisualStyleBackColor = false;
@@ -101,8 +103,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(800, 451);
-            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.facultiesListBox);
+            this.Controls.Add(this.buttonDelete);
             this.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

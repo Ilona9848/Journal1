@@ -48,7 +48,7 @@
             this.labelInstruction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelInstruction.AutoSize = true;
             this.labelInstruction.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstruction.Location = new System.Drawing.Point(197, 51);
+            this.labelInstruction.Location = new System.Drawing.Point(12, 18);
             this.labelInstruction.Name = "labelInstruction";
             this.labelInstruction.Size = new System.Drawing.Size(208, 23);
             this.labelInstruction.TabIndex = 3;
@@ -86,9 +86,9 @@
             // 
             this.facultiesComboBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesComboBox.FormattingEnabled = true;
-            this.facultiesComboBox.Location = new System.Drawing.Point(163, 96);
+            this.facultiesComboBox.Location = new System.Drawing.Point(16, 64);
             this.facultiesComboBox.Name = "facultiesComboBox";
-            this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
+            this.facultiesComboBox.Size = new System.Drawing.Size(750, 31);
             this.facultiesComboBox.TabIndex = 4;
             this.facultiesComboBox.SelectedIndexChanged += new System.EventHandler(this.facultiesComboBox_SelectedIndexChanged);
             // 
@@ -96,7 +96,7 @@
             // 
             this.labelGroup.AutoSize = true;
             this.labelGroup.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGroup.Location = new System.Drawing.Point(258, 140);
+            this.labelGroup.Location = new System.Drawing.Point(12, 115);
             this.labelGroup.Name = "labelGroup";
             this.labelGroup.Size = new System.Drawing.Size(76, 23);
             this.labelGroup.TabIndex = 5;
@@ -107,9 +107,9 @@
             this.listBoxGroups.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxGroups.FormattingEnabled = true;
             this.listBoxGroups.ItemHeight = 23;
-            this.listBoxGroups.Location = new System.Drawing.Point(184, 176);
+            this.listBoxGroups.Location = new System.Drawing.Point(16, 178);
             this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(233, 234);
+            this.listBoxGroups.Size = new System.Drawing.Size(750, 234);
             this.listBoxGroups.TabIndex = 6;
             // 
             // buttonDelete

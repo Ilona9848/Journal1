@@ -59,7 +59,7 @@
             this.facultiesComboBox.FormattingEnabled = true;
             this.facultiesComboBox.Location = new System.Drawing.Point(296, 19);
             this.facultiesComboBox.Name = "facultiesComboBox";
-            this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
+            this.facultiesComboBox.Size = new System.Drawing.Size(492, 31);
             this.facultiesComboBox.TabIndex = 7;
             this.facultiesComboBox.SelectedIndexChanged += new System.EventHandler(this.facultiesComboBox_SelectedIndexChanged);
             // 
@@ -94,7 +94,7 @@
             this.comboBoxGroups.FormattingEnabled = true;
             this.comboBoxGroups.Location = new System.Drawing.Point(296, 78);
             this.comboBoxGroups.Name = "comboBoxGroups";
-            this.comboBoxGroups.Size = new System.Drawing.Size(300, 31);
+            this.comboBoxGroups.Size = new System.Drawing.Size(492, 31);
             this.comboBoxGroups.TabIndex = 9;
             this.comboBoxGroups.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroups_SelectedIndexChanged);
             // 
@@ -103,21 +103,22 @@
             this.listBoxStudents.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxStudents.FormattingEnabled = true;
             this.listBoxStudents.ItemHeight = 23;
-            this.listBoxStudents.Location = new System.Drawing.Point(40, 159);
+            this.listBoxStudents.Location = new System.Drawing.Point(40, 143);
             this.listBoxStudents.Name = "listBoxStudents";
-            this.listBoxStudents.Size = new System.Drawing.Size(310, 257);
+            this.listBoxStudents.Size = new System.Drawing.Size(748, 257);
             this.listBoxStudents.TabIndex = 10;
             // 
             // buttonDelete
             // 
             this.buttonDelete.AutoSize = true;
             this.buttonDelete.BackColor = System.Drawing.Color.SlateBlue;
+            this.buttonDelete.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonDelete.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonDelete.Location = new System.Drawing.Point(579, 361);
+            this.buttonDelete.Location = new System.Drawing.Point(0, 415);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(198, 35);
+            this.buttonDelete.Size = new System.Drawing.Size(800, 35);
             this.buttonDelete.TabIndex = 11;
             this.buttonDelete.Text = "Удалить студента";
             this.buttonDelete.UseVisualStyleBackColor = false;

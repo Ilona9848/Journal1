@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Journal1
 {
@@ -17,8 +18,8 @@ namespace Journal1
         public int cl;
         DateTime day;
         public string facultySelected;
-        
-        string connectionString = @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
+
+        string connectionString;
         public Mark(string groupSelected, int cl, DateTime day,string facultySelected)
         {
             InitializeComponent();
@@ -28,8 +29,39 @@ namespace Journal1
             this.facultySelected = facultySelected;
         }
 
+        public void FindDataBase()
+        {
+            string ds = "";
+            string ic = "";
+            string id = "";
+            string pas = "";
+            string ins= "";
+            using(StreamReader sr=new StreamReader("config.txt"))
+            {
+                while(!sr.EndOfStream)
+                {
+                    string[] s = sr.ReadLine().Split('=');
+                    if (s[0] == "Data Source")
+                        ds = s[1];
+                    if (s[0] == "Initial Catalog")
+                        ic = s[1];
+                    if (s[0] == "Integrated Security")
+                        ins = s[1];
+                    if (s[0] == "User ID")
+                        id = s[1];
+                    if (s[0] == "Password")
+                        pas = s[1];
+                }
+            }
+            if (id != "")
+                connectionString = String.Format(@"Data Source={0};Initial Catalog={1};User Id = {2}; Password = {3}", ds, ic, id, pas);
+            else
+                connectionString = String.Format(@"Data Source={0};Initial Catalog={1};Integrated Security={2}", ds, ic, ins);
+        }
+
         private void Mark_Load(object sender, EventArgs e)
         {
+            FindDataBase();
             String n = "";
             day = new DateTime(day.Year, day.Month, day.Day, 0, 0, 0);
             try
@@ -76,7 +108,7 @@ namespace Journal1
                 }
                 labelName.Text = n;
                 this.Text =  day.ToShortDateString()+ " | " + cl.ToString()+" пара";
-                string sqlExpression = "SELECT * FROM Students";
+                string sqlExpression = "SELECT * FROM Students ORDER BY Фамилия";
                 int row = 0;
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -123,7 +155,6 @@ namespace Journal1
                         reader1.Close();
                     }
                 }
-                dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
             }
             catch
             {
@@ -133,44 +164,42 @@ namespace Journal1
 
         private void buttonMark_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+            try
             {
-                bool b = Convert.ToBoolean(dataGridView1.Rows[i].Cells[3].Value);
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                 {
-                    connection.Open();
-                    string sqlExpression1 = "DELETE FROM Attendance WHERE Студент = @student AND Пара=@class AND Дата=@date";
-                    SqlCommand cmd = new SqlCommand(sqlExpression1, connection);
-                    SqlParameter studParam = new SqlParameter("@student", new Guid(dataGridView1.Rows[i].Cells[0].Value.ToString()));
-                    cmd.Parameters.Add(studParam);
-                    SqlParameter clParam = new SqlParameter("@class", cl);
-                    cmd.Parameters.Add(clParam);
-                    SqlParameter dateParam = new SqlParameter("@date", day);
-                    cmd.Parameters.Add(dateParam);
-                    cmd.ExecuteNonQuery();
-                    if (b)
+                    bool b = Convert.ToBoolean(dataGridView1.Rows[i].Cells[3].Value);
+                    using (SqlConnection connection = new SqlConnection(connectionString))
                     {
-                        string sqlExpression = "INSERT INTO Attendance (Студент, Пара, Дата, Был) VALUES (@students, @class1,@date1,@be)";
-                        SqlCommand command = new SqlCommand(sqlExpression, connection);
-                        SqlParameter studParam1 = new SqlParameter("@students", new Guid(dataGridView1.Rows[i].Cells[0].Value.ToString()));
-                        command.Parameters.Add(studParam1);
-                        SqlParameter clParam1 = new SqlParameter("@class1", cl);
-                        command.Parameters.Add(clParam1);
-                        SqlParameter dateParam1 = new SqlParameter("@date1", day);
-                        command.Parameters.Add(dateParam1);
-                        SqlParameter beParam = new SqlParameter("@be", 1);
-                        command.Parameters.Add(beParam);
-                        command.ExecuteNonQuery();
+                        connection.Open();
+                        string sqlExpression1 = "DELETE FROM Attendance WHERE Студент = @student AND Пара=@class AND Дата=@date";
+                        SqlCommand cmd = new SqlCommand(sqlExpression1, connection);
+                        SqlParameter studParam = new SqlParameter("@student", new Guid(dataGridView1.Rows[i].Cells[0].Value.ToString()));
+                        cmd.Parameters.Add(studParam);
+                        SqlParameter clParam = new SqlParameter("@class", cl);
+                        cmd.Parameters.Add(clParam);
+                        SqlParameter dateParam = new SqlParameter("@date", day);
+                        cmd.Parameters.Add(dateParam);
+                        cmd.ExecuteNonQuery();
+                        if (b)
+                        {
+                            string sqlExpression = "INSERT INTO Attendance (Студент, Пара, Дата, Был) VALUES (@students, @class1,@date1,@be)";
+                            SqlCommand command = new SqlCommand(sqlExpression, connection);
+                            SqlParameter studParam1 = new SqlParameter("@students", new Guid(dataGridView1.Rows[i].Cells[0].Value.ToString()));
+                            command.Parameters.Add(studParam1);
+                            SqlParameter clParam1 = new SqlParameter("@class1", cl);
+                            command.Parameters.Add(clParam1);
+                            SqlParameter dateParam1 = new SqlParameter("@date1", day);
+                            command.Parameters.Add(dateParam1);
+                            SqlParameter beParam = new SqlParameter("@be", 1);
+                            command.Parameters.Add(beParam);
+                            command.ExecuteNonQuery();
+                        }
                     }
                 }
-            }
-
-                
                 this.Close();
-            //}
-            //catch { }
+            }
+            catch { }
         }
     }
 }

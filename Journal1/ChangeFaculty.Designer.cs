@@ -91,9 +91,9 @@
             // 
             this.facultiesComboBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesComboBox.FormattingEnabled = true;
-            this.facultiesComboBox.Location = new System.Drawing.Point(264, 63);
+            this.facultiesComboBox.Location = new System.Drawing.Point(264, 68);
             this.facultiesComboBox.Name = "facultiesComboBox";
-            this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
+            this.facultiesComboBox.Size = new System.Drawing.Size(623, 31);
             this.facultiesComboBox.TabIndex = 2;
             this.facultiesComboBox.SelectedIndexChanged += new System.EventHandler(this.facultiesComboBox_SelectedIndexChanged);
             // 
@@ -121,9 +121,9 @@
             // 
             this.comboBoxGroups.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxGroups.FormattingEnabled = true;
-            this.comboBoxGroups.Location = new System.Drawing.Point(264, 118);
+            this.comboBoxGroups.Location = new System.Drawing.Point(264, 124);
             this.comboBoxGroups.Name = "comboBoxGroups";
-            this.comboBoxGroups.Size = new System.Drawing.Size(300, 31);
+            this.comboBoxGroups.Size = new System.Drawing.Size(623, 31);
             this.comboBoxGroups.TabIndex = 5;
             this.comboBoxGroups.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroups_SelectedIndexChanged);
             // 
@@ -132,9 +132,9 @@
             this.listBoxStudents.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxStudents.FormattingEnabled = true;
             this.listBoxStudents.ItemHeight = 23;
-            this.listBoxStudents.Location = new System.Drawing.Point(16, 177);
+            this.listBoxStudents.Location = new System.Drawing.Point(12, 163);
             this.listBoxStudents.Name = "listBoxStudents";
-            this.listBoxStudents.Size = new System.Drawing.Size(332, 257);
+            this.listBoxStudents.Size = new System.Drawing.Size(875, 257);
             this.listBoxStudents.TabIndex = 6;
             this.listBoxStudents.DoubleClick += new System.EventHandler(this.listBoxStudents_DoubleClick);
             // 
@@ -147,9 +147,9 @@
             // 
             this.facultiesComboBox1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesComboBox1.FormattingEnabled = true;
-            this.facultiesComboBox1.Location = new System.Drawing.Point(264, 63);
+            this.facultiesComboBox1.Location = new System.Drawing.Point(264, 68);
             this.facultiesComboBox1.Name = "facultiesComboBox1";
-            this.facultiesComboBox1.Size = new System.Drawing.Size(300, 31);
+            this.facultiesComboBox1.Size = new System.Drawing.Size(623, 31);
             this.facultiesComboBox1.TabIndex = 6;
             this.facultiesComboBox1.SelectedIndexChanged += new System.EventHandler(this.facultiesComboBox1_SelectedIndexChanged);
             // 
@@ -157,21 +157,22 @@
             // 
             this.comboBoxGroups1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxGroups1.FormattingEnabled = true;
-            this.comboBoxGroups1.Location = new System.Drawing.Point(264, 118);
+            this.comboBoxGroups1.Location = new System.Drawing.Point(264, 124);
             this.comboBoxGroups1.Name = "comboBoxGroups1";
-            this.comboBoxGroups1.Size = new System.Drawing.Size(300, 31);
+            this.comboBoxGroups1.Size = new System.Drawing.Size(623, 31);
             this.comboBoxGroups1.TabIndex = 7;
             // 
             // buttonChange
             // 
             this.buttonChange.AutoSize = true;
             this.buttonChange.BackColor = System.Drawing.Color.SlateBlue;
+            this.buttonChange.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonChange.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonChange.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonChange.Location = new System.Drawing.Point(366, 399);
+            this.buttonChange.Location = new System.Drawing.Point(0, 426);
             this.buttonChange.Name = "buttonChange";
-            this.buttonChange.Size = new System.Drawing.Size(220, 35);
+            this.buttonChange.Size = new System.Drawing.Size(943, 35);
             this.buttonChange.TabIndex = 8;
             this.buttonChange.Text = "Перевести студента";
             this.buttonChange.UseVisualStyleBackColor = false;

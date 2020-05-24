@@ -154,7 +154,7 @@
             this.weekComboBox.FormattingEnabled = true;
             this.weekComboBox.Location = new System.Drawing.Point(230, 218);
             this.weekComboBox.Name = "weekComboBox";
-            this.weekComboBox.Size = new System.Drawing.Size(300, 31);
+            this.weekComboBox.Size = new System.Drawing.Size(614, 31);
             this.weekComboBox.TabIndex = 9;
             this.weekComboBox.ValueMember = "Неделя";
             // 
@@ -171,7 +171,7 @@
             this.weekdayComboBox.FormattingEnabled = true;
             this.weekdayComboBox.Location = new System.Drawing.Point(230, 283);
             this.weekdayComboBox.Name = "weekdayComboBox";
-            this.weekdayComboBox.Size = new System.Drawing.Size(300, 31);
+            this.weekdayComboBox.Size = new System.Drawing.Size(614, 31);
             this.weekdayComboBox.TabIndex = 9;
             this.weekdayComboBox.ValueMember = "Id";
             // 
@@ -186,7 +186,7 @@
             this.facultiesComboBox.FormattingEnabled = true;
             this.facultiesComboBox.Location = new System.Drawing.Point(230, 94);
             this.facultiesComboBox.Name = "facultiesComboBox";
-            this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
+            this.facultiesComboBox.Size = new System.Drawing.Size(614, 31);
             this.facultiesComboBox.TabIndex = 9;
             this.facultiesComboBox.SelectedIndexChanged += new System.EventHandler(this.facultiesComboBox_SelectedIndexChanged);
             // 
@@ -196,7 +196,7 @@
             this.comboBoxGroups.FormattingEnabled = true;
             this.comboBoxGroups.Location = new System.Drawing.Point(230, 157);
             this.comboBoxGroups.Name = "comboBoxGroups";
-            this.comboBoxGroups.Size = new System.Drawing.Size(300, 31);
+            this.comboBoxGroups.Size = new System.Drawing.Size(614, 31);
             this.comboBoxGroups.TabIndex = 10;
             // 
             // labelFaculty

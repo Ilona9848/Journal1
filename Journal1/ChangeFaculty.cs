@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,7 +49,7 @@ namespace Journal1
         }
 
         string facultySelected, groupSelected, studentSelected;
-        string connectionString = @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
+        string connectionString;
         List<Faculties> listFaculties = new List<Faculties>();
         List<Groups> listGroups = new List<Groups>();
         public ChangeFaculty()
@@ -56,8 +57,38 @@ namespace Journal1
             InitializeComponent();
         }
 
+        public void FindDataBase()
+        {
+            string ds = "";
+            string ic = "";
+            string id = "";
+            string pas = "";
+            string ins = "";
+            using (StreamReader sr = new StreamReader("config.txt"))
+            {
+                while (!sr.EndOfStream)
+                {
+                    string[] s = sr.ReadLine().Split('=');
+                    if (s[0] == "Data Source")
+                        ds = s[1];
+                    if (s[0] == "Initial Catalog")
+                        ic = s[1];
+                    if (s[0] == "Integrated Security")
+                        ins = s[1];
+                    if (s[0] == "User ID")
+                        id = s[1];
+                    if (s[0] == "Password")
+                        pas = s[1];
+                }
+            }
+            if (id != "")
+                connectionString = String.Format(@"Data Source={0};Initial Catalog={1};User Id = {2}; Password = {3}", ds, ic, id, pas);
+            else
+                connectionString = String.Format(@"Data Source={0};Initial Catalog={1};Integrated Security={2}", ds, ic, ins);
+        }
         private void ChangeFaculty_Load(object sender, EventArgs e)
         {
+            FindDataBase();
             buttonChange.Hide();
             facultiesComboBox1.Hide();
             comboBoxGroups1.Hide();

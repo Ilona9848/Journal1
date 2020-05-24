@@ -49,7 +49,7 @@
             // 
             this.labelInstruction.AutoSize = true;
             this.labelInstruction.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstruction.Location = new System.Drawing.Point(247, 105);
+            this.labelInstruction.Location = new System.Drawing.Point(12, 22);
             this.labelInstruction.Name = "labelInstruction";
             this.labelInstruction.Size = new System.Drawing.Size(208, 23);
             this.labelInstruction.TabIndex = 2;
@@ -87,9 +87,9 @@
             // 
             this.facultiesComboBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesComboBox.FormattingEnabled = true;
-            this.facultiesComboBox.Location = new System.Drawing.Point(195, 152);
+            this.facultiesComboBox.Location = new System.Drawing.Point(16, 73);
             this.facultiesComboBox.Name = "facultiesComboBox";
-            this.facultiesComboBox.Size = new System.Drawing.Size(300, 31);
+            this.facultiesComboBox.Size = new System.Drawing.Size(624, 31);
             this.facultiesComboBox.TabIndex = 3;
             this.facultiesComboBox.SelectedIndexChanged += new System.EventHandler(this.facultiesComboBox_SelectedIndexChanged);
             // 
@@ -97,7 +97,7 @@
             // 
             this.labelInstruction2.AutoSize = true;
             this.labelInstruction2.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstruction2.Location = new System.Drawing.Point(225, 200);
+            this.labelInstruction2.Location = new System.Drawing.Point(12, 134);
             this.labelInstruction2.Name = "labelInstruction2";
             this.labelInstruction2.Size = new System.Drawing.Size(230, 23);
             this.labelInstruction2.TabIndex = 4;
@@ -106,7 +106,7 @@
             // textBoxGroup
             // 
             this.textBoxGroup.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxGroup.Location = new System.Drawing.Point(283, 242);
+            this.textBoxGroup.Location = new System.Drawing.Point(16, 205);
             this.textBoxGroup.Name = "textBoxGroup";
             this.textBoxGroup.Size = new System.Drawing.Size(100, 31);
             this.textBoxGroup.TabIndex = 5;
