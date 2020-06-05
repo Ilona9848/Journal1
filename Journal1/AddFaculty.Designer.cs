@@ -66,7 +66,7 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.BackColor = System.Drawing.Color.SlateBlue;
+            this.buttonNext.BackColor = System.Drawing.Color.RoyalBlue;
             this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonNext.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonNext.ForeColor = System.Drawing.Color.Transparent;
@@ -93,7 +93,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Lavender;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(848, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonNext);

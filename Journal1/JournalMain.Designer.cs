@@ -30,48 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JournalMain));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ToolStripMenuItemBack = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemFacultiesList = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemSubjectsList = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemOpenStudentsList = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemTable = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemAddFaculty = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemAddGroup = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemAddStudent = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemAddSubject = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemAddSchedule = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemDeleteFaculty = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemDeleteGroup = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemDeleteStudent = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemDeleteSubject = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemChange = new System.Windows.Forms.ToolStripMenuItem();
-            this.journalDataDataSet = new Journal1.JournalDataDataSet();
-            this.facultiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.facultiesTableAdapter = new Journal1.JournalDataDataSetTableAdapters.FacultiesTableAdapter();
-            this.tableAdapterManager = new Journal1.JournalDataDataSetTableAdapters.TableAdapterManager();
-            this.groupsTableAdapter = new Journal1.JournalDataDataSetTableAdapters.GroupsTableAdapter();
-            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.facultiesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.listBoxGroups = new System.Windows.Forms.ListBox();
-            this.subjectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.subjectsTableAdapter = new Journal1.JournalDataDataSetTableAdapters.SubjectsTableAdapter();
-            this.facultiesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.facultiesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.facultiesListBox = new System.Windows.Forms.ListBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.subjectsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.subjectsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.subjectsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.subjectsBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
-            this.typeOfClassBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.typeOfClassTableAdapter = new Journal1.JournalDataDataSetTableAdapters.TypeOfClassTableAdapter();
-            this.typeOfClassBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.typeOfClassBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.typeOfClassBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.buttonNext = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -86,13 +47,55 @@
             this.comboBoxWeek = new System.Windows.Forms.ComboBox();
             this.labelInstruction = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
-            this.facultiesBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.facultiesComboBox = new System.Windows.Forms.ComboBox();
             this.buttonNextSubjects = new System.Windows.Forms.Button();
             this.listBoxSubjects = new System.Windows.Forms.ListBox();
             this.buttonOpenGroups = new System.Windows.Forms.Button();
             this.buttonDate = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.journalDataDataSet = new Journal1.JournalDataDataSet();
+            this.facultiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.facultiesTableAdapter = new Journal1.JournalDataDataSetTableAdapters.FacultiesTableAdapter();
+            this.tableAdapterManager = new Journal1.JournalDataDataSetTableAdapters.TableAdapterManager();
+            this.groupsTableAdapter = new Journal1.JournalDataDataSetTableAdapters.GroupsTableAdapter();
+            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.facultiesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.subjectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.subjectsTableAdapter = new Journal1.JournalDataDataSetTableAdapters.SubjectsTableAdapter();
+            this.facultiesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.facultiesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.subjectsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.subjectsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.subjectsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.subjectsBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.typeOfClassBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.typeOfClassTableAdapter = new Journal1.JournalDataDataSetTableAdapters.TypeOfClassTableAdapter();
+            this.typeOfClassBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.typeOfClassBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.typeOfClassBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.facultiesBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSplitButtonOpen = new System.Windows.Forms.ToolStripSplitButton();
+            this.ToolStripMenuItemListOfFaculties = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemListOfSubjects = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemListOfStudents = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemPeriodTable = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSplitButtonAdd = new System.Windows.Forms.ToolStripSplitButton();
+            this.ToolStripMenuItemAddFaculty = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemAddGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemAddStudent = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemAddSubject = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemAddSchedule = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSplitButtonDelete = new System.Windows.Forms.ToolStripSplitButton();
+            this.ToolStripMenuItemDeleteFaculty = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemDeleteGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemDeleteStudent = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemDeleteSubject = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripDropDownButtonChange = new System.Windows.Forms.ToolStripDropDownButton();
             ((System.ComponentModel.ISupportInitialize)(this.journalDataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultiesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).BeginInit();
@@ -109,183 +112,283 @@
             ((System.ComponentModel.ISupportInitialize)(this.typeOfClassBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeOfClassBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultiesBindingSource4)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // listBoxGroups
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.menuStrip1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemBack,
-            this.ToolStripMenuItemOpen,
-            this.ToolStripMenuItemAdd,
-            this.ToolStripMenuItemDelete,
-            this.ToolStripMenuItemChange});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(14, 5, 0, 5);
-            this.menuStrip1.Size = new System.Drawing.Size(852, 37);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip";
+            this.listBoxGroups.BackColor = System.Drawing.Color.AliceBlue;
+            this.listBoxGroups.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxGroups.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxGroups.FormattingEnabled = true;
+            this.listBoxGroups.ItemHeight = 23;
+            this.listBoxGroups.Location = new System.Drawing.Point(0, 102);
+            this.listBoxGroups.Name = "listBoxGroups";
+            this.listBoxGroups.Size = new System.Drawing.Size(852, 352);
+            this.listBoxGroups.TabIndex = 2;
+            this.listBoxGroups.DoubleClick += new System.EventHandler(this.listBoxGroups_DoubleClick);
             // 
-            // ToolStripMenuItemBack
+            // facultiesListBox
             // 
-            this.ToolStripMenuItemBack.ForeColor = System.Drawing.Color.Black;
-            this.ToolStripMenuItemBack.Name = "ToolStripMenuItemBack";
-            this.ToolStripMenuItemBack.Size = new System.Drawing.Size(312, 27);
-            this.ToolStripMenuItemBack.Text = "Вернуться на главный экран";
-            this.ToolStripMenuItemBack.Click += new System.EventHandler(this.ToolStripMenuItemBack_Click);
+            this.facultiesListBox.BackColor = System.Drawing.Color.AliceBlue;
+            this.facultiesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.facultiesListBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.facultiesListBox.FormattingEnabled = true;
+            this.facultiesListBox.ItemHeight = 23;
+            this.facultiesListBox.Location = new System.Drawing.Point(0, 102);
+            this.facultiesListBox.Name = "facultiesListBox";
+            this.facultiesListBox.Size = new System.Drawing.Size(852, 352);
+            this.facultiesListBox.TabIndex = 3;
+            this.facultiesListBox.DoubleClick += new System.EventHandler(this.facultiesListBox_DoubleClick);
             // 
-            // ToolStripMenuItemOpen
+            // dateTimePicker
             // 
-            this.ToolStripMenuItemOpen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemFacultiesList,
-            this.ToolStripMenuItemSubjectsList,
-            this.ToolStripMenuItemOpenStudentsList,
-            this.ToolStripMenuItemTable});
-            this.ToolStripMenuItemOpen.ForeColor = System.Drawing.Color.Black;
-            this.ToolStripMenuItemOpen.Name = "ToolStripMenuItemOpen";
-            this.ToolStripMenuItemOpen.Size = new System.Drawing.Size(103, 27);
-            this.ToolStripMenuItemOpen.Text = "Открыть";
+            this.dateTimePicker.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimePicker.Location = new System.Drawing.Point(12, 157);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(265, 31);
+            this.dateTimePicker.TabIndex = 4;
             // 
-            // ToolStripMenuItemFacultiesList
+            // label1
             // 
-            this.ToolStripMenuItemFacultiesList.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemFacultiesList.Name = "ToolStripMenuItemFacultiesList";
-            this.ToolStripMenuItemFacultiesList.Size = new System.Drawing.Size(517, 34);
-            this.ToolStripMenuItemFacultiesList.Text = "список факультетов";
-            this.ToolStripMenuItemFacultiesList.Click += new System.EventHandler(this.ToolStripMenuItemFacultiesList_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(134, 131);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 23);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "label1";
             // 
-            // ToolStripMenuItemSubjectsList
+            // buttonNext
             // 
-            this.ToolStripMenuItemSubjectsList.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemSubjectsList.Name = "ToolStripMenuItemSubjectsList";
-            this.ToolStripMenuItemSubjectsList.Size = new System.Drawing.Size(517, 34);
-            this.ToolStripMenuItemSubjectsList.Text = "список предметов";
-            this.ToolStripMenuItemSubjectsList.Click += new System.EventHandler(this.ToolStripMenuItemSubjectsList_Click);
+            this.buttonNext.AutoSize = true;
+            this.buttonNext.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonNext.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonNext.ForeColor = System.Drawing.Color.White;
+            this.buttonNext.Location = new System.Drawing.Point(12, 248);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(181, 43);
+            this.buttonNext.TabIndex = 25;
+            this.buttonNext.Text = "Выбрать пару";
+            this.buttonNext.UseVisualStyleBackColor = false;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
-            // ToolStripMenuItemOpenStudentsList
+            // button1
             // 
-            this.ToolStripMenuItemOpenStudentsList.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemOpenStudentsList.Name = "ToolStripMenuItemOpenStudentsList";
-            this.ToolStripMenuItemOpenStudentsList.Size = new System.Drawing.Size(517, 34);
-            this.ToolStripMenuItemOpenStudentsList.Text = "список студентов по группам";
-            this.ToolStripMenuItemOpenStudentsList.Click += new System.EventHandler(this.ToolStripMenuItemOpenStudentsList_Click);
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(12, 121);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 43);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "1 пара";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // ToolStripMenuItemTable
+            // button2
             // 
-            this.ToolStripMenuItemTable.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemTable.Name = "ToolStripMenuItemTable";
-            this.ToolStripMenuItemTable.Size = new System.Drawing.Size(517, 34);
-            this.ToolStripMenuItemTable.Text = "таблицу посещаемости группы за период";
-            this.ToolStripMenuItemTable.Click += new System.EventHandler(this.ToolStripMenuItemTable_Click);
+            this.button2.AutoSize = true;
+            this.button2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(12, 178);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(101, 43);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "2 пара";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // ToolStripMenuItemAdd
+            // button3
             // 
-            this.ToolStripMenuItemAdd.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.ToolStripMenuItemAdd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemAddFaculty,
-            this.ToolStripMenuItemAddGroup,
-            this.ToolStripMenuItemAddStudent,
-            this.ToolStripMenuItemAddSubject,
-            this.ToolStripMenuItemAddSchedule});
-            this.ToolStripMenuItemAdd.ForeColor = System.Drawing.Color.Black;
-            this.ToolStripMenuItemAdd.Name = "ToolStripMenuItemAdd";
-            this.ToolStripMenuItemAdd.Size = new System.Drawing.Size(114, 27);
-            this.ToolStripMenuItemAdd.Text = "Добавить";
+            this.button3.AutoSize = true;
+            this.button3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(12, 238);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(101, 43);
+            this.button3.TabIndex = 28;
+            this.button3.Text = "3 пара";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // ToolStripMenuItemAddFaculty
+            // button4
             // 
-            this.ToolStripMenuItemAddFaculty.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemAddFaculty.Name = "ToolStripMenuItemAddFaculty";
-            this.ToolStripMenuItemAddFaculty.Size = new System.Drawing.Size(270, 34);
-            this.ToolStripMenuItemAddFaculty.Text = "факультет";
-            this.ToolStripMenuItemAddFaculty.Click += new System.EventHandler(this.ToolStripMenuItemAddFaculty_Click);
+            this.button4.AutoSize = true;
+            this.button4.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(12, 301);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(101, 43);
+            this.button4.TabIndex = 29;
+            this.button4.Text = "4 пара";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // ToolStripMenuItemAddGroup
+            // label3
             // 
-            this.ToolStripMenuItemAddGroup.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemAddGroup.Name = "ToolStripMenuItemAddGroup";
-            this.ToolStripMenuItemAddGroup.Size = new System.Drawing.Size(270, 34);
-            this.ToolStripMenuItemAddGroup.Text = "группу";
-            this.ToolStripMenuItemAddGroup.Click += new System.EventHandler(this.ToolStripMenuItemAddGroup_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(134, 248);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 23);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "label3";
             // 
-            // ToolStripMenuItemAddStudent
+            // label4
             // 
-            this.ToolStripMenuItemAddStudent.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemAddStudent.Name = "ToolStripMenuItemAddStudent";
-            this.ToolStripMenuItemAddStudent.Size = new System.Drawing.Size(270, 34);
-            this.ToolStripMenuItemAddStudent.Text = "студента";
-            this.ToolStripMenuItemAddStudent.Click += new System.EventHandler(this.ToolStripMenuItemAddStudent_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(134, 311);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 23);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "label4";
             // 
-            // ToolStripMenuItemAddSubject
+            // label2
             // 
-            this.ToolStripMenuItemAddSubject.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemAddSubject.Name = "ToolStripMenuItemAddSubject";
-            this.ToolStripMenuItemAddSubject.Size = new System.Drawing.Size(270, 34);
-            this.ToolStripMenuItemAddSubject.Text = "предмет";
-            this.ToolStripMenuItemAddSubject.Click += new System.EventHandler(this.ToolStripMenuItemAddSubject_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(134, 188);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 23);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "label2";
             // 
-            // ToolStripMenuItemAddSchedule
+            // labelFaculty
             // 
-            this.ToolStripMenuItemAddSchedule.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemAddSchedule.Name = "ToolStripMenuItemAddSchedule";
-            this.ToolStripMenuItemAddSchedule.Size = new System.Drawing.Size(270, 34);
-            this.ToolStripMenuItemAddSchedule.Text = "расписание";
-            this.ToolStripMenuItemAddSchedule.Click += new System.EventHandler(this.ToolStripMenuItemAddSchedule_Click);
+            this.labelFaculty.AutoSize = true;
+            this.labelFaculty.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelFaculty.Font = new System.Drawing.Font("Consolas", 10F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelFaculty.Location = new System.Drawing.Point(0, 33);
+            this.labelFaculty.Name = "labelFaculty";
+            this.labelFaculty.Size = new System.Drawing.Size(76, 23);
+            this.labelFaculty.TabIndex = 33;
+            this.labelFaculty.Text = "label5";
             // 
-            // ToolStripMenuItemDelete
+            // labelGroup
             // 
-            this.ToolStripMenuItemDelete.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemDeleteFaculty,
-            this.ToolStripMenuItemDeleteGroup,
-            this.ToolStripMenuItemDeleteStudent,
-            this.ToolStripMenuItemDeleteSubject});
-            this.ToolStripMenuItemDelete.ForeColor = System.Drawing.Color.Black;
-            this.ToolStripMenuItemDelete.Name = "ToolStripMenuItemDelete";
-            this.ToolStripMenuItemDelete.Size = new System.Drawing.Size(103, 27);
-            this.ToolStripMenuItemDelete.Text = "Удалить";
+            this.labelGroup.AutoSize = true;
+            this.labelGroup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelGroup.Font = new System.Drawing.Font("Consolas", 10F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelGroup.Location = new System.Drawing.Point(0, 56);
+            this.labelGroup.Name = "labelGroup";
+            this.labelGroup.Size = new System.Drawing.Size(65, 23);
+            this.labelGroup.TabIndex = 34;
+            this.labelGroup.Text = "Пусто";
             // 
-            // ToolStripMenuItemDeleteFaculty
+            // comboBoxWeek
             // 
-            this.ToolStripMenuItemDeleteFaculty.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemDeleteFaculty.Name = "ToolStripMenuItemDeleteFaculty";
-            this.ToolStripMenuItemDeleteFaculty.Size = new System.Drawing.Size(209, 34);
-            this.ToolStripMenuItemDeleteFaculty.Text = "факультет";
-            this.ToolStripMenuItemDeleteFaculty.Click += new System.EventHandler(this.ToolStripMenuItemDeleteFaculty_Click);
+            this.comboBoxWeek.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxWeek.FormattingEnabled = true;
+            this.comboBoxWeek.Items.AddRange(new object[] {
+            "1 неделя",
+            "2 неделя"});
+            this.comboBoxWeek.Location = new System.Drawing.Point(12, 201);
+            this.comboBoxWeek.Name = "comboBoxWeek";
+            this.comboBoxWeek.Size = new System.Drawing.Size(121, 31);
+            this.comboBoxWeek.TabIndex = 35;
             // 
-            // ToolStripMenuItemDeleteGroup
+            // labelInstruction
             // 
-            this.ToolStripMenuItemDeleteGroup.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemDeleteGroup.Name = "ToolStripMenuItemDeleteGroup";
-            this.ToolStripMenuItemDeleteGroup.Size = new System.Drawing.Size(209, 34);
-            this.ToolStripMenuItemDeleteGroup.Text = "группу";
-            this.ToolStripMenuItemDeleteGroup.Click += new System.EventHandler(this.ToolStripMenuItemDeleteGroup_Click);
+            this.labelInstruction.AutoSize = true;
+            this.labelInstruction.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInstruction.Location = new System.Drawing.Point(8, 121);
+            this.labelInstruction.Name = "labelInstruction";
+            this.labelInstruction.Size = new System.Drawing.Size(318, 23);
+            this.labelInstruction.TabIndex = 36;
+            this.labelInstruction.Text = "Выберите дату и номер недели";
             // 
-            // ToolStripMenuItemDeleteStudent
+            // labelDate
             // 
-            this.ToolStripMenuItemDeleteStudent.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemDeleteStudent.Name = "ToolStripMenuItemDeleteStudent";
-            this.ToolStripMenuItemDeleteStudent.Size = new System.Drawing.Size(209, 34);
-            this.ToolStripMenuItemDeleteStudent.Text = "студента";
-            this.ToolStripMenuItemDeleteStudent.Click += new System.EventHandler(this.ToolStripMenuItemDeleteStudent_Click);
+            this.labelDate.AutoSize = true;
+            this.labelDate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelDate.Font = new System.Drawing.Font("Consolas", 10F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelDate.Location = new System.Drawing.Point(0, 79);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(76, 23);
+            this.labelDate.TabIndex = 37;
+            this.labelDate.Text = "label5";
             // 
-            // ToolStripMenuItemDeleteSubject
+            // facultiesComboBox
             // 
-            this.ToolStripMenuItemDeleteSubject.BackColor = System.Drawing.Color.Thistle;
-            this.ToolStripMenuItemDeleteSubject.Name = "ToolStripMenuItemDeleteSubject";
-            this.ToolStripMenuItemDeleteSubject.Size = new System.Drawing.Size(209, 34);
-            this.ToolStripMenuItemDeleteSubject.Text = "предмет";
-            this.ToolStripMenuItemDeleteSubject.Click += new System.EventHandler(this.ToolStripMenuItemDeleteSubject_Click);
+            this.facultiesComboBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.facultiesComboBox.FormattingEnabled = true;
+            this.facultiesComboBox.Location = new System.Drawing.Point(0, 147);
+            this.facultiesComboBox.Name = "facultiesComboBox";
+            this.facultiesComboBox.Size = new System.Drawing.Size(720, 31);
+            this.facultiesComboBox.TabIndex = 37;
             // 
-            // ToolStripMenuItemChange
+            // buttonNextSubjects
             // 
-            this.ToolStripMenuItemChange.ForeColor = System.Drawing.Color.Black;
-            this.ToolStripMenuItemChange.Name = "ToolStripMenuItemChange";
-            this.ToolStripMenuItemChange.Size = new System.Drawing.Size(202, 27);
-            this.ToolStripMenuItemChange.Text = "Перевод студента";
-            this.ToolStripMenuItemChange.Click += new System.EventHandler(this.ToolStripMenuItemChange_Click);
+            this.buttonNextSubjects.AutoSize = true;
+            this.buttonNextSubjects.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonNextSubjects.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonNextSubjects.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonNextSubjects.ForeColor = System.Drawing.Color.White;
+            this.buttonNextSubjects.Location = new System.Drawing.Point(0, 199);
+            this.buttonNextSubjects.Name = "buttonNextSubjects";
+            this.buttonNextSubjects.Size = new System.Drawing.Size(181, 43);
+            this.buttonNextSubjects.TabIndex = 38;
+            this.buttonNextSubjects.Text = "Открыть список";
+            this.buttonNextSubjects.UseVisualStyleBackColor = false;
+            this.buttonNextSubjects.Click += new System.EventHandler(this.buttonNextSubjects_Click);
+            // 
+            // listBoxSubjects
+            // 
+            this.listBoxSubjects.BackColor = System.Drawing.Color.AliceBlue;
+            this.listBoxSubjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxSubjects.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxSubjects.FormattingEnabled = true;
+            this.listBoxSubjects.ItemHeight = 23;
+            this.listBoxSubjects.Location = new System.Drawing.Point(0, 102);
+            this.listBoxSubjects.Name = "listBoxSubjects";
+            this.listBoxSubjects.Size = new System.Drawing.Size(852, 352);
+            this.listBoxSubjects.TabIndex = 39;
+            // 
+            // buttonOpenGroups
+            // 
+            this.buttonOpenGroups.AutoSize = true;
+            this.buttonOpenGroups.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonOpenGroups.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonOpenGroups.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonOpenGroups.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOpenGroups.ForeColor = System.Drawing.Color.White;
+            this.buttonOpenGroups.Location = new System.Drawing.Point(0, 497);
+            this.buttonOpenGroups.Name = "buttonOpenGroups";
+            this.buttonOpenGroups.Size = new System.Drawing.Size(852, 43);
+            this.buttonOpenGroups.TabIndex = 40;
+            this.buttonOpenGroups.Text = "Открыть список групп";
+            this.buttonOpenGroups.UseVisualStyleBackColor = false;
+            this.buttonOpenGroups.Click += new System.EventHandler(this.buttonOpenGroups_Click);
+            // 
+            // buttonDate
+            // 
+            this.buttonDate.AutoSize = true;
+            this.buttonDate.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonDate.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonDate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonDate.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDate.ForeColor = System.Drawing.Color.White;
+            this.buttonDate.Location = new System.Drawing.Point(0, 454);
+            this.buttonDate.Name = "buttonDate";
+            this.buttonDate.Size = new System.Drawing.Size(852, 43);
+            this.buttonDate.TabIndex = 41;
+            this.buttonDate.Text = "Продолжить";
+            this.buttonDate.UseVisualStyleBackColor = false;
+            this.buttonDate.Click += new System.EventHandler(this.buttonDate_Click);
             // 
             // journalDataDataSet
             // 
@@ -329,18 +432,6 @@
             this.facultiesBindingSource1.DataMember = "Faculties";
             this.facultiesBindingSource1.DataSource = this.journalDataDataSet;
             // 
-            // listBoxGroups
-            // 
-            this.listBoxGroups.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxGroups.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listBoxGroups.FormattingEnabled = true;
-            this.listBoxGroups.ItemHeight = 23;
-            this.listBoxGroups.Location = new System.Drawing.Point(0, 106);
-            this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(852, 348);
-            this.listBoxGroups.TabIndex = 2;
-            this.listBoxGroups.DoubleClick += new System.EventHandler(this.listBoxGroups_DoubleClick);
-            // 
             // subjectsBindingSource
             // 
             this.subjectsBindingSource.DataMember = "Subjects";
@@ -359,26 +450,6 @@
             // 
             this.facultiesBindingSource3.DataMember = "Faculties";
             this.facultiesBindingSource3.DataSource = this.journalDataDataSet;
-            // 
-            // facultiesListBox
-            // 
-            this.facultiesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.facultiesListBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.facultiesListBox.FormattingEnabled = true;
-            this.facultiesListBox.ItemHeight = 23;
-            this.facultiesListBox.Location = new System.Drawing.Point(0, 106);
-            this.facultiesListBox.Name = "facultiesListBox";
-            this.facultiesListBox.Size = new System.Drawing.Size(852, 348);
-            this.facultiesListBox.TabIndex = 3;
-            this.facultiesListBox.DoubleClick += new System.EventHandler(this.facultiesListBox_DoubleClick);
-            // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker.Location = new System.Drawing.Point(12, 157);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(265, 31);
-            this.dateTimePicker.TabIndex = 4;
             // 
             // subjectsBindingSource1
             // 
@@ -424,241 +495,227 @@
             this.typeOfClassBindingSource3.DataMember = "TypeOfClass";
             this.typeOfClassBindingSource3.DataSource = this.journalDataDataSet;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(134, 131);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 23);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "label1";
-            // 
-            // buttonNext
-            // 
-            this.buttonNext.AutoSize = true;
-            this.buttonNext.BackColor = System.Drawing.Color.MediumPurple;
-            this.buttonNext.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonNext.Location = new System.Drawing.Point(12, 248);
-            this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(181, 43);
-            this.buttonNext.TabIndex = 25;
-            this.buttonNext.Text = "Выбрать пару";
-            this.buttonNext.UseVisualStyleBackColor = false;
-            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.MediumPurple;
-            this.button1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(12, 121);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 43);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "1 пара";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // button2
-            // 
-            this.button2.AutoSize = true;
-            this.button2.BackColor = System.Drawing.Color.MediumPurple;
-            this.button2.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(12, 178);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 43);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "2 пара";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.AutoSize = true;
-            this.button3.BackColor = System.Drawing.Color.MediumPurple;
-            this.button3.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(12, 238);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 43);
-            this.button3.TabIndex = 28;
-            this.button3.Text = "3 пара";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.AutoSize = true;
-            this.button4.BackColor = System.Drawing.Color.MediumPurple;
-            this.button4.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(12, 301);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(101, 43);
-            this.button4.TabIndex = 29;
-            this.button4.Text = "4 пара";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(134, 248);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 23);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "label3";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(134, 311);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 23);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "label4";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(134, 188);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 23);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "label2";
-            // 
-            // labelFaculty
-            // 
-            this.labelFaculty.AutoSize = true;
-            this.labelFaculty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelFaculty.Font = new System.Drawing.Font("Consolas", 10F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFaculty.Location = new System.Drawing.Point(0, 37);
-            this.labelFaculty.Name = "labelFaculty";
-            this.labelFaculty.Size = new System.Drawing.Size(76, 23);
-            this.labelFaculty.TabIndex = 33;
-            this.labelFaculty.Text = "label5";
-            // 
-            // labelGroup
-            // 
-            this.labelGroup.AutoSize = true;
-            this.labelGroup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelGroup.Font = new System.Drawing.Font("Consolas", 10F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGroup.Location = new System.Drawing.Point(0, 60);
-            this.labelGroup.Name = "labelGroup";
-            this.labelGroup.Size = new System.Drawing.Size(65, 23);
-            this.labelGroup.TabIndex = 34;
-            this.labelGroup.Text = "Пусто";
-            // 
-            // comboBoxWeek
-            // 
-            this.comboBoxWeek.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBoxWeek.FormattingEnabled = true;
-            this.comboBoxWeek.Items.AddRange(new object[] {
-            "1 неделя",
-            "2 неделя"});
-            this.comboBoxWeek.Location = new System.Drawing.Point(12, 201);
-            this.comboBoxWeek.Name = "comboBoxWeek";
-            this.comboBoxWeek.Size = new System.Drawing.Size(121, 31);
-            this.comboBoxWeek.TabIndex = 35;
-            // 
-            // labelInstruction
-            // 
-            this.labelInstruction.AutoSize = true;
-            this.labelInstruction.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstruction.Location = new System.Drawing.Point(8, 121);
-            this.labelInstruction.Name = "labelInstruction";
-            this.labelInstruction.Size = new System.Drawing.Size(318, 23);
-            this.labelInstruction.TabIndex = 36;
-            this.labelInstruction.Text = "Выберите дату и номер недели";
-            // 
-            // labelDate
-            // 
-            this.labelDate.AutoSize = true;
-            this.labelDate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelDate.Font = new System.Drawing.Font("Consolas", 10F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDate.Location = new System.Drawing.Point(0, 83);
-            this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(76, 23);
-            this.labelDate.TabIndex = 37;
-            this.labelDate.Text = "label5";
-            // 
             // facultiesBindingSource4
             // 
             this.facultiesBindingSource4.DataMember = "Faculties";
             this.facultiesBindingSource4.DataSource = this.journalDataDataSet;
             // 
-            // facultiesComboBox
+            // toolStrip1
             // 
-            this.facultiesComboBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.facultiesComboBox.FormattingEnabled = true;
-            this.facultiesComboBox.Location = new System.Drawing.Point(0, 147);
-            this.facultiesComboBox.Name = "facultiesComboBox";
-            this.facultiesComboBox.Size = new System.Drawing.Size(720, 31);
-            this.facultiesComboBox.TabIndex = 37;
+            this.toolStrip1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.toolStrip1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonBack,
+            this.toolStripSeparator1,
+            this.toolStripSplitButtonOpen,
+            this.toolStripSeparator2,
+            this.toolStripSplitButtonAdd,
+            this.toolStripSeparator3,
+            this.toolStripSplitButtonDelete,
+            this.toolStripSeparator4,
+            this.toolStripDropDownButtonChange});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(852, 33);
+            this.toolStrip1.TabIndex = 43;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // buttonNextSubjects
+            // toolStripButtonBack
             // 
-            this.buttonNextSubjects.AutoSize = true;
-            this.buttonNextSubjects.BackColor = System.Drawing.Color.MediumPurple;
-            this.buttonNextSubjects.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonNextSubjects.Location = new System.Drawing.Point(0, 199);
-            this.buttonNextSubjects.Name = "buttonNextSubjects";
-            this.buttonNextSubjects.Size = new System.Drawing.Size(181, 43);
-            this.buttonNextSubjects.TabIndex = 38;
-            this.buttonNextSubjects.Text = "Открыть список";
-            this.buttonNextSubjects.UseVisualStyleBackColor = false;
-            this.buttonNextSubjects.Click += new System.EventHandler(this.buttonNextSubjects_Click);
+            this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBack.Image")));
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(34, 28);
+            this.toolStripButtonBack.Text = "Вернуться на главный экран";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
             // 
-            // listBoxSubjects
+            // toolStripSeparator1
             // 
-            this.listBoxSubjects.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxSubjects.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listBoxSubjects.FormattingEnabled = true;
-            this.listBoxSubjects.ItemHeight = 23;
-            this.listBoxSubjects.Location = new System.Drawing.Point(0, 106);
-            this.listBoxSubjects.Name = "listBoxSubjects";
-            this.listBoxSubjects.Size = new System.Drawing.Size(852, 348);
-            this.listBoxSubjects.TabIndex = 39;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 33);
             // 
-            // buttonOpenGroups
+            // toolStripSplitButtonOpen
             // 
-            this.buttonOpenGroups.AutoSize = true;
-            this.buttonOpenGroups.BackColor = System.Drawing.Color.MediumPurple;
-            this.buttonOpenGroups.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonOpenGroups.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOpenGroups.Location = new System.Drawing.Point(0, 497);
-            this.buttonOpenGroups.Name = "buttonOpenGroups";
-            this.buttonOpenGroups.Size = new System.Drawing.Size(852, 43);
-            this.buttonOpenGroups.TabIndex = 40;
-            this.buttonOpenGroups.Text = "Открыть список групп";
-            this.buttonOpenGroups.UseVisualStyleBackColor = false;
-            this.buttonOpenGroups.Click += new System.EventHandler(this.buttonOpenGroups_Click);
+            this.toolStripSplitButtonOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButtonOpen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemListOfFaculties,
+            this.ToolStripMenuItemListOfSubjects,
+            this.ToolStripMenuItemListOfStudents,
+            this.ToolStripMenuItemPeriodTable});
+            this.toolStripSplitButtonOpen.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButtonOpen.Image")));
+            this.toolStripSplitButtonOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButtonOpen.Name = "toolStripSplitButtonOpen";
+            this.toolStripSplitButtonOpen.Size = new System.Drawing.Size(45, 28);
+            this.toolStripSplitButtonOpen.Text = "Открыть";
             // 
-            // buttonDate
+            // ToolStripMenuItemListOfFaculties
             // 
-            this.buttonDate.AutoSize = true;
-            this.buttonDate.BackColor = System.Drawing.Color.MediumPurple;
-            this.buttonDate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonDate.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDate.Location = new System.Drawing.Point(0, 454);
-            this.buttonDate.Name = "buttonDate";
-            this.buttonDate.Size = new System.Drawing.Size(852, 43);
-            this.buttonDate.TabIndex = 41;
-            this.buttonDate.Text = "Продолжить";
-            this.buttonDate.UseVisualStyleBackColor = false;
-            this.buttonDate.Click += new System.EventHandler(this.buttonDate_Click);
+            this.ToolStripMenuItemListOfFaculties.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemListOfFaculties.Name = "ToolStripMenuItemListOfFaculties";
+            this.ToolStripMenuItemListOfFaculties.Size = new System.Drawing.Size(528, 34);
+            this.ToolStripMenuItemListOfFaculties.Text = "список факультетов";
+            this.ToolStripMenuItemListOfFaculties.Click += new System.EventHandler(this.ToolStripMenuItemListOfFaculties_Click);
+            // 
+            // ToolStripMenuItemListOfSubjects
+            // 
+            this.ToolStripMenuItemListOfSubjects.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemListOfSubjects.Name = "ToolStripMenuItemListOfSubjects";
+            this.ToolStripMenuItemListOfSubjects.Size = new System.Drawing.Size(528, 34);
+            this.ToolStripMenuItemListOfSubjects.Text = "список предметов";
+            this.ToolStripMenuItemListOfSubjects.Click += new System.EventHandler(this.ToolStripMenuItemListOfSubjects_Click);
+            // 
+            // ToolStripMenuItemListOfStudents
+            // 
+            this.ToolStripMenuItemListOfStudents.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemListOfStudents.Name = "ToolStripMenuItemListOfStudents";
+            this.ToolStripMenuItemListOfStudents.Size = new System.Drawing.Size(528, 34);
+            this.ToolStripMenuItemListOfStudents.Text = "список студентов по группам";
+            this.ToolStripMenuItemListOfStudents.Click += new System.EventHandler(this.ToolStripMenuItemListOfStudents_Click);
+            // 
+            // ToolStripMenuItemPeriodTable
+            // 
+            this.ToolStripMenuItemPeriodTable.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemPeriodTable.Name = "ToolStripMenuItemPeriodTable";
+            this.ToolStripMenuItemPeriodTable.Size = new System.Drawing.Size(528, 34);
+            this.ToolStripMenuItemPeriodTable.Text = "таблицу посещаемости групппы за период";
+            this.ToolStripMenuItemPeriodTable.Click += new System.EventHandler(this.ToolStripMenuItemPeriodTable_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
+            // 
+            // toolStripSplitButtonAdd
+            // 
+            this.toolStripSplitButtonAdd.BackColor = System.Drawing.Color.LightCyan;
+            this.toolStripSplitButtonAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButtonAdd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemAddFaculty,
+            this.ToolStripMenuItemAddGroup,
+            this.ToolStripMenuItemAddStudent,
+            this.ToolStripMenuItemAddSubject,
+            this.ToolStripMenuItemAddSchedule});
+            this.toolStripSplitButtonAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButtonAdd.Image")));
+            this.toolStripSplitButtonAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButtonAdd.Name = "toolStripSplitButtonAdd";
+            this.toolStripSplitButtonAdd.Size = new System.Drawing.Size(45, 28);
+            this.toolStripSplitButtonAdd.Text = "Добавить";
+            // 
+            // ToolStripMenuItemAddFaculty
+            // 
+            this.ToolStripMenuItemAddFaculty.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemAddFaculty.Name = "ToolStripMenuItemAddFaculty";
+            this.ToolStripMenuItemAddFaculty.Size = new System.Drawing.Size(319, 34);
+            this.ToolStripMenuItemAddFaculty.Text = "добавить факультет";
+            this.ToolStripMenuItemAddFaculty.Click += new System.EventHandler(this.ToolStripMenuItemAddFaculty_Click);
+            // 
+            // ToolStripMenuItemAddGroup
+            // 
+            this.ToolStripMenuItemAddGroup.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemAddGroup.Name = "ToolStripMenuItemAddGroup";
+            this.ToolStripMenuItemAddGroup.Size = new System.Drawing.Size(319, 34);
+            this.ToolStripMenuItemAddGroup.Text = "добавить группу";
+            this.ToolStripMenuItemAddGroup.Click += new System.EventHandler(this.ToolStripMenuItemAddGroup_Click);
+            // 
+            // ToolStripMenuItemAddStudent
+            // 
+            this.ToolStripMenuItemAddStudent.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemAddStudent.Name = "ToolStripMenuItemAddStudent";
+            this.ToolStripMenuItemAddStudent.Size = new System.Drawing.Size(319, 34);
+            this.ToolStripMenuItemAddStudent.Text = "добавить студента";
+            this.ToolStripMenuItemAddStudent.Click += new System.EventHandler(this.ToolStripMenuItemAddStudent_Click);
+            // 
+            // ToolStripMenuItemAddSubject
+            // 
+            this.ToolStripMenuItemAddSubject.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemAddSubject.Name = "ToolStripMenuItemAddSubject";
+            this.ToolStripMenuItemAddSubject.Size = new System.Drawing.Size(319, 34);
+            this.ToolStripMenuItemAddSubject.Text = "добавить предмет";
+            this.ToolStripMenuItemAddSubject.Click += new System.EventHandler(this.ToolStripMenuItemAddSubject_Click);
+            // 
+            // ToolStripMenuItemAddSchedule
+            // 
+            this.ToolStripMenuItemAddSchedule.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemAddSchedule.Name = "ToolStripMenuItemAddSchedule";
+            this.ToolStripMenuItemAddSchedule.Size = new System.Drawing.Size(319, 34);
+            this.ToolStripMenuItemAddSchedule.Text = "добавить расписание";
+            this.ToolStripMenuItemAddSchedule.Click += new System.EventHandler(this.ToolStripMenuItemAddSchedule_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 33);
+            // 
+            // toolStripSplitButtonDelete
+            // 
+            this.toolStripSplitButtonDelete.BackColor = System.Drawing.Color.LightCyan;
+            this.toolStripSplitButtonDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButtonDelete.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemDeleteFaculty,
+            this.ToolStripMenuItemDeleteGroup,
+            this.ToolStripMenuItemDeleteStudent,
+            this.ToolStripMenuItemDeleteSubject});
+            this.toolStripSplitButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButtonDelete.Image")));
+            this.toolStripSplitButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButtonDelete.Name = "toolStripSplitButtonDelete";
+            this.toolStripSplitButtonDelete.Size = new System.Drawing.Size(45, 28);
+            this.toolStripSplitButtonDelete.Text = "Удалить";
+            // 
+            // ToolStripMenuItemDeleteFaculty
+            // 
+            this.ToolStripMenuItemDeleteFaculty.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemDeleteFaculty.Name = "ToolStripMenuItemDeleteFaculty";
+            this.ToolStripMenuItemDeleteFaculty.Size = new System.Drawing.Size(297, 34);
+            this.ToolStripMenuItemDeleteFaculty.Text = "удалить факультет";
+            this.ToolStripMenuItemDeleteFaculty.Click += new System.EventHandler(this.ToolStripMenuItemDeleteFaculty_Click);
+            // 
+            // ToolStripMenuItemDeleteGroup
+            // 
+            this.ToolStripMenuItemDeleteGroup.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemDeleteGroup.Name = "ToolStripMenuItemDeleteGroup";
+            this.ToolStripMenuItemDeleteGroup.Size = new System.Drawing.Size(297, 34);
+            this.ToolStripMenuItemDeleteGroup.Text = "удалить группу";
+            this.ToolStripMenuItemDeleteGroup.Click += new System.EventHandler(this.ToolStripMenuItemDeleteGroup_Click);
+            // 
+            // ToolStripMenuItemDeleteStudent
+            // 
+            this.ToolStripMenuItemDeleteStudent.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemDeleteStudent.Name = "ToolStripMenuItemDeleteStudent";
+            this.ToolStripMenuItemDeleteStudent.Size = new System.Drawing.Size(297, 34);
+            this.ToolStripMenuItemDeleteStudent.Text = "удалить студента";
+            this.ToolStripMenuItemDeleteStudent.Click += new System.EventHandler(this.ToolStripMenuItemDeleteStudent_Click);
+            // 
+            // ToolStripMenuItemDeleteSubject
+            // 
+            this.ToolStripMenuItemDeleteSubject.BackColor = System.Drawing.Color.LightCyan;
+            this.ToolStripMenuItemDeleteSubject.Name = "ToolStripMenuItemDeleteSubject";
+            this.ToolStripMenuItemDeleteSubject.Size = new System.Drawing.Size(297, 34);
+            this.ToolStripMenuItemDeleteSubject.Text = "удалить предмет";
+            this.ToolStripMenuItemDeleteSubject.Click += new System.EventHandler(this.ToolStripMenuItemDeleteSubject_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 33);
+            // 
+            // toolStripDropDownButtonChange
+            // 
+            this.toolStripDropDownButtonChange.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButtonChange.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonChange.Image")));
+            this.toolStripDropDownButtonChange.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButtonChange.Name = "toolStripDropDownButtonChange";
+            this.toolStripDropDownButtonChange.Size = new System.Drawing.Size(42, 28);
+            this.toolStripDropDownButtonChange.Text = "Первести студента";
+            this.toolStripDropDownButtonChange.Click += new System.EventHandler(this.toolStripDropDownButtonChange_Click);
             // 
             // JournalMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 33F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Lavender;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(852, 540);
             this.Controls.Add(this.listBoxGroups);
             this.Controls.Add(this.facultiesListBox);
@@ -668,7 +725,6 @@
             this.Controls.Add(this.labelDate);
             this.Controls.Add(this.labelGroup);
             this.Controls.Add(this.labelFaculty);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.buttonDate);
             this.Controls.Add(this.buttonOpenGroups);
             this.Controls.Add(this.label2);
@@ -683,17 +739,15 @@
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.comboBoxWeek);
             this.Controls.Add(this.buttonNext);
+            this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Segoe Script", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "JournalMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Журнал";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.journalDataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultiesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).EndInit();
@@ -710,18 +764,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.typeOfClassBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeOfClassBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultiesBindingSource4)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAdd;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddFaculty;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddGroup;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddStudent;
         private JournalDataDataSet journalDataDataSet;
         private System.Windows.Forms.BindingSource facultiesBindingSource;
         private JournalDataDataSetTableAdapters.FacultiesTableAdapter facultiesTableAdapter;
@@ -730,14 +780,8 @@
         private System.Windows.Forms.BindingSource groupsBindingSource;
         private System.Windows.Forms.BindingSource facultiesBindingSource1;
         private System.Windows.Forms.ListBox listBoxGroups;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddSubject;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemOpen;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSubjectsList;
         private System.Windows.Forms.BindingSource subjectsBindingSource;
         private JournalDataDataSetTableAdapters.SubjectsTableAdapter subjectsTableAdapter;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemBack;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddSchedule;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemFacultiesList;
         private System.Windows.Forms.BindingSource facultiesBindingSource2;
         private System.Windows.Forms.BindingSource facultiesBindingSource3;
         private System.Windows.Forms.ListBox facultiesListBox;
@@ -769,16 +813,31 @@
         private System.Windows.Forms.ComboBox facultiesComboBox;
         private System.Windows.Forms.Button buttonNextSubjects;
         private System.Windows.Forms.ListBox listBoxSubjects;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemDelete;
+        private System.Windows.Forms.Button buttonOpenGroups;
+        private System.Windows.Forms.Button buttonDate;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonOpen;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemListOfFaculties;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemListOfSubjects;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemListOfStudents;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemPeriodTable;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonAdd;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddFaculty;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddGroup;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddStudent;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddSubject;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddSchedule;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonDelete;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemDeleteFaculty;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemDeleteGroup;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemDeleteStudent;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemDeleteSubject;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemChange;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemOpenStudentsList;
-        private System.Windows.Forms.Button buttonOpenGroups;
-        private System.Windows.Forms.Button buttonDate;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemTable;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonChange;
     }
 }
 

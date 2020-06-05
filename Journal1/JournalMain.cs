@@ -152,91 +152,6 @@ namespace Journal1
             mark.Close();
         }
 
-        private void ToolStripMenuItemBack_Click(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Subjects". При необходимости она может быть перемещена или удалена.
-            //this.subjectsTableAdapter.Fill(this.journalDataDataSet.Subjects);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Groups". При необходимости она может быть перемещена или удалена.
-            //this.groupsTableAdapter.Fill(this.journalDataDataSet.Groups);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Faculties". При необходимости она может быть перемещена или удалена.
-            //this.facultiesTableAdapter.Fill(this.journalDataDataSet.Faculties);
-            Back();
-            LoadFaculties();
-        } 
-        
-        private void ToolStripMenuItemFacultiesList_Click(object sender, EventArgs e)
-        {
-            facultiesListBox.Show();
-            listBoxGroups.Hide();
-            dateTimePicker.Hide();
-            button1.Hide();
-            button2.Hide();
-            button3.Hide();
-            button4.Hide();
-            label1.Hide();
-            label2.Hide();
-            label3.Hide();
-            label4.Hide();
-            buttonNext.Hide();
-            labelFaculty.Hide();
-            labelGroup.Hide();
-            labelInstruction.Hide();
-            comboBoxWeek.Hide();
-            labelDate.Hide();
-            facultiesComboBox.Hide();
-            listBoxSubjects.Hide();
-            buttonNextSubjects.Hide();
-            LoadFaculties();
-        }
-
-        private void ToolStripMenuItemSubjectsList_Click(object sender, EventArgs e)
-        {
-            facultiesListBox.Hide();
-            listBoxGroups.Hide();
-            dateTimePicker.Hide();
-            button1.Hide();
-            button2.Hide();
-            button3.Hide();
-            button4.Hide();
-            label1.Hide();
-            label2.Hide();
-            label3.Hide();
-            label4.Hide();
-            buttonNext.Hide();
-            labelFaculty.Hide();
-            labelGroup.Hide();
-            labelInstruction.Hide();
-            comboBoxWeek.Hide();
-            labelDate.Hide();
-            facultiesComboBox.Show();
-            buttonNextSubjects.Show();
-            listBoxSubjects.Items.Clear();
-            listBoxSubjects.Hide();
-            buttonOpenGroups.Hide();
-            buttonDate.Hide();
-            string sqlExpression = "SELECT * FROM Faculties ORDER BY Факультет";
-            List<Faculties> listFaculties = new List<Faculties>();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        object id = reader.GetValue(0);
-                        object faculty = reader.GetValue(1);
-                        listFaculties.Add(new Faculties(id, faculty));
-                    }
-                }
-                facultiesComboBox.DataSource = listFaculties;
-                facultiesComboBox.DisplayMember = "faculty";
-                facultiesComboBox.ValueMember = "id";
-                reader.Close();
-            }
-        }
-       
         private void buttonNextSubjects_Click(object sender, EventArgs e)
         {
             facultiesComboBox.Hide();
@@ -269,123 +184,6 @@ namespace Journal1
                 LoadSubjects();
             }
             catch { }
-        }
-        
-        private void ToolStripMenuItemOpenStudentsList_Click(object sender, EventArgs e)
-        {
-            StudentsList studentsList = new StudentsList();
-            studentsList.ShowDialog();
-            studentsList.Close();
-        }
-        
-        private void ToolStripMenuItemAddFaculty_Click(object sender, EventArgs e)
-        {
-            AddFaculty addFaculty = new AddFaculty();
-            addFaculty.ShowDialog();
-            addFaculty.Close();
-            LoadFaculties();
-        }
-
-        private void ToolStripMenuItemAddGroup_Click(object sender, EventArgs e)
-        {
-            AddGroupWithoutStudents withoutStudents = new AddGroupWithoutStudents();
-            withoutStudents.ShowDialog();
-            withoutStudents.Close();
-            LoadFaculties();
-            LoadGroups();
-        }
-       
-        private void ToolStripMenuItemAddStudent_Click(object sender, EventArgs e)
-        {
-            AddStudent addStudent = new AddStudent();
-            addStudent.ShowDialog();
-            addStudent.Close();
-            LoadFaculties();
-            LoadGroups();
-        }
-        
-        private void ToolStripMenuItemAddSubject_Click(object sender, EventArgs e)
-        {
-            AddSubject addSubject = new AddSubject();
-            addSubject.ShowDialog();
-            addSubject.Close();
-            LoadFaculties();
-            LoadSubjects();
-        }
-       
-        private void ToolStripMenuItemAddSchedule_Click(object sender, EventArgs e)
-        {
-            AddSchedule addSchedule = new AddSchedule();
-            addSchedule.ShowDialog();
-            addSchedule.Close();
-            LoadFaculties();
-            LoadGroups();
-            UpdateSchedule();
-        }
-
-        private void ToolStripMenuItemDeleteFaculty_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DeleteFaculty deleteFaculty = new DeleteFaculty();
-                deleteFaculty.ShowDialog();
-                deleteFaculty.Close();
-                LoadFaculties();
-                LoadGroups();
-                LoadSubjects();
-                UpdateSchedule();
-            }
-            catch
-            {
-                Back();
-            }
-        }
-
-        private void ToolStripMenuItemDeleteGroup_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DeleteGroup deleteGroup = new DeleteGroup();
-                deleteGroup.ShowDialog();
-                deleteGroup.Close();
-                LoadGroups();
-                LoadSubjects();
-                UpdateSchedule();
-            }
-            catch
-            {
-                Back();
-            }
-        }
-
-        private void ToolStripMenuItemDeleteStudent_Click(object sender, EventArgs e)
-        {
-            DeleteStudent deleteStudent = new DeleteStudent();
-            deleteStudent.ShowDialog();
-            deleteStudent.Close();
-        }
-
-        private void ToolStripMenuItemDeleteSubject_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DeleteSubject deleteSubject = new DeleteSubject();
-                deleteSubject.ShowDialog();
-                deleteSubject.Close();
-                LoadSubjects();
-                UpdateSchedule();
-            }
-            catch 
-            {
-                Back();
-            }
-        }
-
-        private void ToolStripMenuItemChange_Click(object sender, EventArgs e)
-        {
-            ChangeFaculty changeFaculty = new ChangeFaculty();
-            changeFaculty.ShowDialog();
-            changeFaculty.Close();
         }
 
         public void LoadFaculties()
@@ -663,11 +461,207 @@ namespace Journal1
             }
         }
 
-        private void ToolStripMenuItemTable_Click(object sender, EventArgs e)
+        private void toolStripButtonBack_Click(object sender, EventArgs e)
+        {
+            Back();
+            LoadFaculties();
+        }
+
+        private void ToolStripMenuItemListOfFaculties_Click(object sender, EventArgs e)
+        {
+            facultiesListBox.Show();
+            listBoxGroups.Hide();
+            dateTimePicker.Hide();
+            button1.Hide();
+            button2.Hide();
+            button3.Hide();
+            button4.Hide();
+            label1.Hide();
+            label2.Hide();
+            label3.Hide();
+            label4.Hide();
+            buttonNext.Hide();
+            labelFaculty.Hide();
+            labelGroup.Hide();
+            labelInstruction.Hide();
+            comboBoxWeek.Hide();
+            labelDate.Hide();
+            facultiesComboBox.Hide();
+            listBoxSubjects.Hide();
+            buttonNextSubjects.Hide();
+            LoadFaculties();
+        }
+
+        private void ToolStripMenuItemListOfSubjects_Click(object sender, EventArgs e)
+        {
+            facultiesListBox.Hide();
+            listBoxGroups.Hide();
+            dateTimePicker.Hide();
+            button1.Hide();
+            button2.Hide();
+            button3.Hide();
+            button4.Hide();
+            label1.Hide();
+            label2.Hide();
+            label3.Hide();
+            label4.Hide();
+            buttonNext.Hide();
+            labelFaculty.Hide();
+            labelGroup.Hide();
+            labelInstruction.Hide();
+            comboBoxWeek.Hide();
+            labelDate.Hide();
+            facultiesComboBox.Show();
+            buttonNextSubjects.Show();
+            listBoxSubjects.Items.Clear();
+            listBoxSubjects.Hide();
+            buttonOpenGroups.Hide();
+            buttonDate.Hide();
+            string sqlExpression = "SELECT * FROM Faculties ORDER BY Факультет";
+            List<Faculties> listFaculties = new List<Faculties>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        object id = reader.GetValue(0);
+                        object faculty = reader.GetValue(1);
+                        listFaculties.Add(new Faculties(id, faculty));
+                    }
+                }
+                facultiesComboBox.DataSource = listFaculties;
+                facultiesComboBox.DisplayMember = "faculty";
+                facultiesComboBox.ValueMember = "id";
+                reader.Close();
+            }
+        }
+
+        private void ToolStripMenuItemListOfStudents_Click(object sender, EventArgs e)
+        {
+            StudentsList studentsList = new StudentsList();
+            studentsList.ShowDialog();
+            studentsList.Close();
+        }
+
+        private void ToolStripMenuItemPeriodTable_Click(object sender, EventArgs e)
         {
             Table table = new Table();
             table.ShowDialog();
             table.Close();
+        }
+
+        private void ToolStripMenuItemAddFaculty_Click(object sender, EventArgs e)
+        {
+            AddFaculty addFaculty = new AddFaculty();
+            addFaculty.ShowDialog();
+            addFaculty.Close();
+            LoadFaculties();
+        }
+
+        private void ToolStripMenuItemAddGroup_Click(object sender, EventArgs e)
+        {
+            AddGroupWithoutStudents withoutStudents = new AddGroupWithoutStudents();
+            withoutStudents.ShowDialog();
+            withoutStudents.Close();
+            LoadFaculties();
+            LoadGroups();
+        }
+
+        private void ToolStripMenuItemAddStudent_Click(object sender, EventArgs e)
+        {
+            AddStudent addStudent = new AddStudent();
+            addStudent.ShowDialog();
+            addStudent.Close();
+            LoadFaculties();
+            LoadGroups();
+        }
+
+        private void ToolStripMenuItemAddSubject_Click(object sender, EventArgs e)
+        {
+            AddSubject addSubject = new AddSubject();
+            addSubject.ShowDialog();
+            addSubject.Close();
+            LoadFaculties();
+            LoadSubjects();
+        }
+
+        private void ToolStripMenuItemAddSchedule_Click(object sender, EventArgs e)
+        {
+            AddSchedule addSchedule = new AddSchedule();
+            addSchedule.ShowDialog();
+            addSchedule.Close();
+            LoadFaculties();
+            LoadGroups();
+            UpdateSchedule();
+        }
+
+        private void ToolStripMenuItemDeleteFaculty_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DeleteFaculty deleteFaculty = new DeleteFaculty();
+                deleteFaculty.ShowDialog();
+                deleteFaculty.Close();
+                LoadFaculties();
+                LoadGroups();
+                LoadSubjects();
+                UpdateSchedule();
+            }
+            catch
+            {
+                Back();
+            }
+        }
+
+        private void ToolStripMenuItemDeleteGroup_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DeleteGroup deleteGroup = new DeleteGroup();
+                deleteGroup.ShowDialog();
+                deleteGroup.Close();
+                LoadGroups();
+                LoadSubjects();
+                UpdateSchedule();
+            }
+            catch
+            {
+                Back();
+            }
+        }
+
+        private void ToolStripMenuItemDeleteStudent_Click(object sender, EventArgs e)
+        {
+            DeleteStudent deleteStudent = new DeleteStudent();
+            deleteStudent.ShowDialog();
+            deleteStudent.Close();
+        }
+
+        private void ToolStripMenuItemDeleteSubject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DeleteSubject deleteSubject = new DeleteSubject();
+                deleteSubject.ShowDialog();
+                deleteSubject.Close();
+                LoadSubjects();
+                UpdateSchedule();
+            }
+            catch
+            {
+                Back();
+            }
+        }
+
+        private void toolStripDropDownButtonChange_Click(object sender, EventArgs e)
+        {
+            ChangeFaculty changeFaculty = new ChangeFaculty();
+            changeFaculty.ShowDialog();
+            changeFaculty.Close();
         }
 
         public void FindType(int idSel,StringBuilder sb)

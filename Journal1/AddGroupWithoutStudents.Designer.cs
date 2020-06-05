@@ -113,7 +113,7 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.BackColor = System.Drawing.Color.SlateBlue;
+            this.buttonNext.BackColor = System.Drawing.Color.RoyalBlue;
             this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonNext.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonNext.ForeColor = System.Drawing.Color.Transparent;
@@ -128,7 +128,7 @@
             // buttonAddFaculty
             // 
             this.buttonAddFaculty.AutoSize = true;
-            this.buttonAddFaculty.BackColor = System.Drawing.Color.SlateBlue;
+            this.buttonAddFaculty.BackColor = System.Drawing.Color.RoyalBlue;
             this.buttonAddFaculty.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAddFaculty.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAddFaculty.ForeColor = System.Drawing.Color.Transparent;
@@ -154,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Lavender;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.textBoxGroup);

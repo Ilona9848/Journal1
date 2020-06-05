@@ -70,6 +70,7 @@
             // 
             // facultiesListBox
             // 
+            this.facultiesListBox.BackColor = System.Drawing.Color.AliceBlue;
             this.facultiesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.facultiesListBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.facultiesListBox.FormattingEnabled = true;
@@ -83,7 +84,7 @@
             // buttonDelete
             // 
             this.buttonDelete.AutoSize = true;
-            this.buttonDelete.BackColor = System.Drawing.Color.SlateBlue;
+            this.buttonDelete.BackColor = System.Drawing.Color.RoyalBlue;
             this.buttonDelete.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));

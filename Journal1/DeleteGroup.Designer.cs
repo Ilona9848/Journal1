@@ -104,6 +104,7 @@
             // 
             // listBoxGroups
             // 
+            this.listBoxGroups.BackColor = System.Drawing.Color.AliceBlue;
             this.listBoxGroups.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxGroups.FormattingEnabled = true;
             this.listBoxGroups.ItemHeight = 23;
@@ -115,8 +116,8 @@
             // buttonDelete
             // 
             this.buttonDelete.AutoSize = true;
-            this.buttonDelete.BackColor = System.Drawing.Color.SlateBlue;
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonDelete.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonDelete.ForeColor = System.Drawing.Color.Transparent;
             this.buttonDelete.Location = new System.Drawing.Point(590, 12);
@@ -131,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Lavender;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.listBoxGroups);

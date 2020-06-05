@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using ClosedXML.Excel;
 
 namespace Journal1
 {
@@ -75,11 +76,13 @@ namespace Journal1
         }
         private void Table_Load(object sender, EventArgs e)
         {
+            
             FindDataBase();
             LoadFaculties();
             facultiesComboBox.SelectedIndex = -1;
             labelName.Hide();
             dataGridView1.Hide();
+            toolStrip1.Hide();
         }
 
         private void facultiesComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -159,86 +162,35 @@ namespace Journal1
             }
         }
 
-        private void ToolStripMenuItemSave_Click(object sender, EventArgs e)
+        private void toolStripButtonSave_Click(object sender, EventArgs e)
         {
-            try
+            SaveFileDialog sv = new SaveFileDialog();
+            sv.Filter = "Microsoft Excel Workbook(*.xlsx)|*.xlsx|All files(*.*)|*.*";
+            sv.FileName = labelName.Text;
+            if (sv.ShowDialog() == DialogResult.OK)
             {
-                SaveFileDialog sv = new SaveFileDialog();
-                sv.Filter = "Text file(*.txt)|*.txt|All files(*.*)|*.*";
-                if (sv.ShowDialog() == DialogResult.OK)
+                var workbook = new XLWorkbook();
+                var worksheet = workbook.Worksheets.Add(this.Text);
+                for (int i = 1; i < dataGridView1.Columns.Count; i++)
                 {
-                    using (StreamWriter sw = new StreamWriter(sv.FileName))
+                    string s = dataGridView1.Columns[i].HeaderText;
+                    if (i == 1)
+                        worksheet.Cell(1, 1).Value = "Фамилия, Имя";
+                    else
                     {
-                        for (int i = 1; i < dataGridView1.Columns.Count; i++)
-                        {
-                            string s = dataGridView1.Columns[i].HeaderText;
-                            if (i == 1)
-                                sw.Write("Фамилия Имя,");
-                            else
-                            {
-                                sw.Write(s + ",");
-                            }
-                        }
-                        sw.WriteLine();
-                        for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                        {
-                            for (int k = 1; k < dataGridView1.Columns.Count; k++)
-                            {
-                                string s="";
-                                try
-                                {
-                                    s = dataGridView1.Rows[i].Cells[k].Value.ToString();
-                                }
-                                catch { };
-                                if (s == "")
-                                    sw.Write(" ,");
-                                else 
-                                    sw.Write(s + ",");
-                            }
-                            sw.WriteLine();
-                        }
+                        worksheet.Cell(1, i).Value = s;
                     }
                 }
-            }
-            catch { }
-        }
-
-        private void ToolStripMenuItemOpen_Click(object sender, EventArgs e)
-        {
-            labelInstr1.Hide();
-            labelInstr2.Hide();
-            label1.Hide();
-            label2.Hide();
-            comboBoxGroups.Hide();
-            facultiesComboBox.Hide();
-            dateTimePicker1.Hide();
-            dateTimePicker2.Hide();
-            buttonOpenTable.Hide();
-            dataGridView1.Show();
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                StreamReader sr = new StreamReader(openFileDialog1.FileName);
-                int i = -1;
-                while(!sr.EndOfStream)
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    string[] s = sr.ReadLine().Split(',');
-                    if(i==-1)
+                    for (int k = 1; k < dataGridView1.Columns.Count; k++)
                     {
-                        for(int k=0;k<s.Length;k++)
-                        {
-                            dataGridView1.Columns.Add(s[k], s[k]);
-                        }
-                        i++;
-                        continue;
+                        if (dataGridView1.Rows[i].Cells[k].Value != null)
+                            worksheet.Cell(i + 2, k).Value = dataGridView1.Rows[i].Cells[k].Value.ToString();
                     }
-                    dataGridView1.Rows.Add();
-                    for(int k=0;k<s.Length;k++)
-                    {
-                        dataGridView1.Rows[i].Cells[k].Value = s[k];
-                    }
-                    i++;
                 }
-                sr.Close();
+                worksheet.Columns().AdjustToContents();
+                workbook.SaveAs(sv.FileName);
             }
         }
 
@@ -292,6 +244,7 @@ namespace Journal1
             }
             labelName.Text = n;
             labelName.Show();
+            toolStrip1.Show();
             comboBoxGroups.Hide();
             facultiesComboBox.Hide();
             dateTimePicker1.Hide();

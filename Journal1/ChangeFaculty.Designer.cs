@@ -129,10 +129,11 @@
             // 
             // listBoxStudents
             // 
+            this.listBoxStudents.BackColor = System.Drawing.Color.AliceBlue;
             this.listBoxStudents.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxStudents.FormattingEnabled = true;
             this.listBoxStudents.ItemHeight = 23;
-            this.listBoxStudents.Location = new System.Drawing.Point(12, 163);
+            this.listBoxStudents.Location = new System.Drawing.Point(16, 172);
             this.listBoxStudents.Name = "listBoxStudents";
             this.listBoxStudents.Size = new System.Drawing.Size(875, 257);
             this.listBoxStudents.TabIndex = 6;
@@ -165,7 +166,7 @@
             // buttonChange
             // 
             this.buttonChange.AutoSize = true;
-            this.buttonChange.BackColor = System.Drawing.Color.SlateBlue;
+            this.buttonChange.BackColor = System.Drawing.Color.RoyalBlue;
             this.buttonChange.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonChange.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -183,7 +184,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Lavender;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(943, 461);
             this.Controls.Add(this.buttonChange);
             this.Controls.Add(this.comboBoxGroups1);
