@@ -80,9 +80,9 @@
             this.labelInstr2.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelInstr2.Location = new System.Drawing.Point(12, 123);
             this.labelInstr2.Name = "labelInstr2";
-            this.labelInstr2.Size = new System.Drawing.Size(208, 23);
+            this.labelInstr2.Size = new System.Drawing.Size(186, 23);
             this.labelInstr2.TabIndex = 15;
-            this.labelInstr2.Text = "Выберите факультет";
+            this.labelInstr2.Text = "Выберите предмет";
             // 
             // facultiesTableAdapter
             // 

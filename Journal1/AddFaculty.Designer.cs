@@ -54,7 +54,7 @@
             this.labelExample.Name = "labelExample";
             this.labelExample.Size = new System.Drawing.Size(626, 23);
             this.labelExample.TabIndex = 2;
-            this.labelExample.Text = "Пример: факультет математики и информационных технологий";
+            this.labelExample.Text = "Пример: Факультет математики и информационных технологий";
             // 
             // textBoxFaculty
             // 
