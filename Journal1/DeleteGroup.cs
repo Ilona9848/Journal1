@@ -35,12 +35,15 @@ namespace Journal1
                 this.Group = Convert.ToInt32(group);
             }
         }
+
         string facultySelected;
-        string connectionString = @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
+        string connectionString;
+
         public DeleteGroup()
         {
             InitializeComponent();
         }
+
         public void LoadGroup()
         {
             try
@@ -77,6 +80,7 @@ namespace Journal1
             }
 
         }
+
         private void facultiesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
@@ -84,6 +88,7 @@ namespace Journal1
             this.tableAdapterManager.UpdateAll(this.journalDataDataSet);
 
         }
+
         public void FindDataBase()
         {
             string ds = "";
@@ -113,6 +118,7 @@ namespace Journal1
             else
                 connectionString = String.Format(@"Data Source={0};Initial Catalog={1};Integrated Security={2}", ds, ic, ins);
         }
+
         private void DeleteGroup_Load(object sender, EventArgs e)
         {
             FindDataBase();
@@ -139,7 +145,7 @@ namespace Journal1
         {
             try
             {
-                DialogResult result = MessageBox.Show("Удаление группы может привести к удалению всех судентов, связанных с ней. Вы уверены, что хотите продолжить?", "Подтверждение", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Удаление группы может привести к удалению всех студентов, связанных с ней. Вы уверены, что хотите продолжить?", "Подтверждение", MessageBoxButtons.YesNo);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
                     Guid id = new Guid(listBoxGroups.SelectedValue.ToString());

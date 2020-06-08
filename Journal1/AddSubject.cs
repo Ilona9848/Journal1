@@ -34,7 +34,6 @@ namespace Journal1
         {
             try
             {
-                string connectionString = @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
                 string subject = textBoxSubject.Text;
                 Guid id = new Guid(facultiesComboBox.SelectedValue.ToString());
                 if (subject == "")

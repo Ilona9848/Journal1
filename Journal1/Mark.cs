@@ -18,6 +18,7 @@ namespace Journal1
         public int cl;
         DateTime day;
         public string facultySelected;
+        string n = "";
 
         string connectionString;
         public Mark(string groupSelected, int cl, DateTime day,string facultySelected)
@@ -62,8 +63,16 @@ namespace Journal1
         private void Mark_Load(object sender, EventArgs e)
         {
             FindDataBase();
-            String n = "";
             day = new DateTime(day.Year, day.Month, day.Day, 0, 0, 0);
+            FindFaculty();
+            FindGroup();
+            labelName.Text = n;
+            this.Text =  day.ToShortDateString()+ " | " + cl.ToString()+" пара";
+            FindStudents();
+        }
+        
+        private void FindFaculty()
+        {
             try
             {
                 string sqlexpression1 = "SELECT * FROM Faculties";
@@ -80,12 +89,21 @@ namespace Journal1
                             object faculty = reader.GetValue(1);
                             if (id.ToString() == facultySelected)
                             {
-                                n = faculty.ToString()+" ";
+                                n = faculty.ToString() + " ";
                             }
                         }
                     }
                     reader.Close();
                 }
+            }
+            catch
+            { }
+        }
+
+        private void FindGroup()
+        {
+            try
+            {
                 string sqlexpression4 = "SELECT * FROM Groups";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -100,14 +118,20 @@ namespace Journal1
                             object group = reader.GetValue(2);
                             if (id.ToString() == groupSelected)
                             {
-                                n = n +" "+group.ToString()+" группа ";
+                                n = n + " " + group.ToString() + " группа ";
                             }
                         }
                     }
                     reader.Close();
                 }
-                labelName.Text = n;
-                this.Text =  day.ToShortDateString()+ " | " + cl.ToString()+" пара";
+            }
+            catch { }
+        }
+
+        private void FindStudents()
+        {
+            try
+            {
                 string sqlExpression = "SELECT * FROM Students ORDER BY Фамилия";
                 int row = 0;
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -157,9 +181,7 @@ namespace Journal1
                 }
             }
             catch
-            {
-
-            }
+            { }
         }
 
         private void buttonMark_Click(object sender, EventArgs e)

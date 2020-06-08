@@ -86,7 +86,6 @@ namespace Journal1
         {
             try
             {
-                string connectionString = @"Data Source=.\SQLSEXPRESS;Initial Catalog=JournalData;Integrated Security=True";
                 int group = Convert.ToInt32(textBoxGroup.Text);
                 string sqlExpression = "INSERT INTO Groups (Факультет, Группа) VALUES (@faculty, @group)";
                 using (SqlConnection connection = new SqlConnection(connectionString))

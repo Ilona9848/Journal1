@@ -25,6 +25,7 @@ namespace Journal1
                 this.Faculty = faculty.ToString();
             }
         }
+
         public class Subjects
         {
             public string Id { get; set; }
@@ -35,11 +36,14 @@ namespace Journal1
                 this.Subject = subject.ToString();
             }
         }
+
         public DeleteSubject()
         {
             InitializeComponent();
         }
+
         string connectionString;
+
         private void DeleteSubject_Load(object sender, EventArgs e)
         {
             FindDataBase();
@@ -50,6 +54,7 @@ namespace Journal1
             }
             catch { }
         }
+
         public void FindDataBase()
         {
             string ds = "";
@@ -79,6 +84,7 @@ namespace Journal1
             else
                 connectionString = String.Format(@"Data Source={0};Initial Catalog={1};Integrated Security={2}", ds, ic, ins);
         }
+
         public void LoadFaculties()
         {
             string sqlExpression = "SELECT * FROM Faculties ORDER BY Факультет";

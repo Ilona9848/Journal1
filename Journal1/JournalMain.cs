@@ -65,6 +65,7 @@ namespace Journal1
             Back();
             LoadFaculties();
         }
+
         public void FindDataBase()
         {
             string ds = "";
@@ -94,13 +95,24 @@ namespace Journal1
             else
                 connectionString = String.Format(@"Data Source={0};Initial Catalog={1};Integrated Security={2}", ds, ic, ins);
         }
+
         private void facultiesListBox_DoubleClick(object sender, EventArgs e)
         {
+            labelFaculty.Show();
+            facultiesListBox.Hide();
+            listBoxGroups.Show();
+            buttonOpenGroups.Hide();
+            buttonDate.Show();
             OpenGroups();
         }
         
         private void buttonOpenGroups_Click(object sender, EventArgs e)
         {
+            labelFaculty.Show();
+            facultiesListBox.Hide();
+            listBoxGroups.Show();
+            buttonOpenGroups.Hide();
+            buttonDate.Show();
             OpenGroups();
         }
         
@@ -209,7 +221,6 @@ namespace Journal1
                 facultiesListBox.ValueMember = "id";
                 reader.Close();
             }
-
         }
 
         public void OpenDate()
@@ -257,11 +268,6 @@ namespace Journal1
         {
             try
             {
-                labelFaculty.Show();
-                facultiesListBox.Hide();
-                listBoxGroups.Show();
-                buttonOpenGroups.Hide();
-                buttonDate.Show();
                 facultySelected = facultiesListBox.SelectedValue.ToString();
                 string sqlexpression1 = "SELECT * FROM Faculties";
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -284,7 +290,6 @@ namespace Journal1
                     LoadGroups();
                     reader.Close();
                 }
-                
             }
             catch { }
         }
@@ -316,7 +321,6 @@ namespace Journal1
                 listBoxGroups.ValueMember = "id";
                 reader.Close();
             }
-
         }
 
         private void Back()//Возвращает на основное меню
@@ -375,37 +379,46 @@ namespace Journal1
                             object group = reader.GetValue(4);
                             object sub = reader.GetValue(5);
                             object type = reader.GetValue(6);
-                            if (weekSelected == week && weekdaySelected == weekday && listBoxGroups.SelectedValue.ToString() == group.ToString() && cl == 1)
+                            if (weekSelected == week )
                             {
-                                FindSubject(sub.ToString(), sb1);
-                                FindType((int)type, sb1);
-                                label1.Text = sb1.ToString();
-                                button1.Show(); label1.Show();
-                                sb1.Clear();
-                            }
-                            if (weekSelected == week && weekdaySelected == weekday && listBoxGroups.SelectedValue.ToString() == group.ToString() && cl == 2)
-                            {
-                                FindSubject(sub.ToString(), sb1);
-                                FindType((int)type, sb1);
-                                label2.Text = sb1.ToString();
-                                button2.Show(); label2.Show();
-                                sb1.Clear();
-                            }
-                            if (weekSelected == week && weekdaySelected == weekday && listBoxGroups.SelectedValue.ToString() == group.ToString() && cl == 3)
-                            {
-                                FindSubject(sub.ToString(), sb1);
-                                FindType((int)type, sb1);
-                                label3.Text = sb1.ToString();
-                                button3.Show(); label3.Show();
-                                sb1.Clear();
-                            }
-                            if (weekSelected == week && weekdaySelected == weekday && listBoxGroups.SelectedValue.ToString() == group.ToString() && cl == 4)
-                            {
-                                FindSubject(sub.ToString(), sb1);
-                                FindType((int)type, sb1);
-                                label4.Text = sb1.ToString();
-                                button4.Show(); label4.Show();
-                                sb1.Clear();
+                                if (weekdaySelected == weekday)
+                                {
+                                    if (listBoxGroups.SelectedValue.ToString() == group.ToString())
+                                    {
+                                        if (cl == 1)
+                                        {
+                                            FindSubject(sub.ToString(), sb1);
+                                            FindType((int)type, sb1);
+                                            label1.Text = sb1.ToString();
+                                            button1.Show(); label1.Show();
+                                            sb1.Clear();
+                                        }
+                                        if (cl == 2)
+                                        {
+                                            FindSubject(sub.ToString(), sb1);
+                                            FindType((int)type, sb1);
+                                            label2.Text = sb1.ToString();
+                                            button2.Show(); label2.Show();
+                                            sb1.Clear();
+                                        }
+                                        if (cl == 3)
+                                        {
+                                            FindSubject(sub.ToString(), sb1);
+                                            FindType((int)type, sb1);
+                                            label3.Text = sb1.ToString();
+                                            button3.Show(); label3.Show();
+                                            sb1.Clear();
+                                        }
+                                        if (cl == 4)
+                                        {
+                                            FindSubject(sub.ToString(), sb1);
+                                            FindType((int)type, sb1);
+                                            label4.Text = sb1.ToString();
+                                            button4.Show(); label4.Show();
+                                            sb1.Clear();
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

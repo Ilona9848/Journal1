@@ -38,13 +38,14 @@ namespace Journal1
             }
         }
 
-        string connectionString;
-
+        string connectionString;string n = "";
         string facultySelected, groupSelected;
+
         public Table()
         {
             InitializeComponent();
         }
+
         public void FindDataBase()
         {
             string ds = "";
@@ -74,6 +75,7 @@ namespace Journal1
             else
                 connectionString = String.Format(@"Data Source={0};Initial Catalog={1};Integrated Security={2}", ds, ic, ins);
         }
+
         private void Table_Load(object sender, EventArgs e)
         {
             
@@ -122,8 +124,6 @@ namespace Journal1
                 reader.Close();
             }
         }
-
-        
 
         public void LoadGroups()
         {
@@ -194,14 +194,8 @@ namespace Journal1
             }
         }
 
-        private void buttonOpenTable_Click(object sender, EventArgs e)
+        private void FindFaculty()
         {
-            labelInstr1.Hide();
-            labelInstr2.Hide();
-            label1.Hide();
-            label2.Hide();
-            string n = "";
-            groupSelected = comboBoxGroups.SelectedValue.ToString();
             string sqlexpression1 = "SELECT * FROM Faculties";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -222,6 +216,11 @@ namespace Journal1
                 }
                 reader.Close();
             }
+        }
+
+        private void FindGroup()
+        {
+            groupSelected = comboBoxGroups.SelectedValue.ToString();
             string sqlexpression4 = "SELECT * FROM Groups";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -242,6 +241,16 @@ namespace Journal1
                 }
                 reader.Close();
             }
+        }
+
+        private void buttonOpenTable_Click(object sender, EventArgs e)
+        {
+            labelInstr1.Hide();
+            labelInstr2.Hide();
+            label1.Hide();
+            label2.Hide();
+            FindFaculty();
+            FindGroup();
             labelName.Text = n;
             labelName.Show();
             toolStrip1.Show();
@@ -250,7 +259,6 @@ namespace Journal1
             dateTimePicker1.Hide();
             dateTimePicker2.Hide();
             buttonOpenTable.Hide();
-            groupSelected = comboBoxGroups.SelectedValue.ToString();
             DateTime begin = dateTimePicker1.Value;
             begin = new DateTime(begin.Year, begin.Month, begin.Day, 0, 0, 0);
             DateTime end = dateTimePicker2.Value;
@@ -329,7 +337,6 @@ namespace Journal1
                 }
                 dataGridView1.Rows[i].Cells[dataGridView1.Columns.Count - 1].Value = count;
             }
-            
         }
     }
 }

@@ -59,6 +59,7 @@ namespace Journal1
         {
             InitializeComponent();
         }
+
         public void FindDataBase()
         {
             string ds = "";
@@ -88,6 +89,7 @@ namespace Journal1
             else
                 connectionString = String.Format(@"Data Source={0};Initial Catalog={1};Integrated Security={2}", ds, ic, ins);
         }
+
         private void AddSchedule_Load(object sender, EventArgs e)
         {
             FindDataBase();
@@ -254,7 +256,6 @@ namespace Journal1
                                 if (clas.ToString() == "4")
                                     c4 = id.ToString();
                             }
-
                         }
                     }
                 }
@@ -294,7 +295,6 @@ namespace Journal1
                 command.Parameters.Add(idParam);
                 command.ExecuteNonQuery();
             }
-
         }
 
         public void Change()
@@ -452,7 +452,6 @@ namespace Journal1
                 command.Parameters.Add(typeParam);
                 int number = command.ExecuteNonQuery();
             }
-
         }
 
         private void buttonAddFaculty_Click(object sender, EventArgs e)

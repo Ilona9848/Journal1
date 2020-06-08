@@ -425,7 +425,7 @@
             this.buttonAddGroup.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAddGroup.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAddGroup.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonAddGroup.Location = new System.Drawing.Point(28, 403);
+            this.buttonAddGroup.Location = new System.Drawing.Point(28, 417);
             this.buttonAddGroup.Name = "buttonAddGroup";
             this.buttonAddGroup.Size = new System.Drawing.Size(284, 33);
             this.buttonAddGroup.TabIndex = 27;

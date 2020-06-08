@@ -25,6 +25,7 @@ namespace Journal1
                 this.Faculty = faculty.ToString();
             }
         }
+
         public class Groups
         {
             public string Id { get; set; }
@@ -35,6 +36,7 @@ namespace Journal1
                 this.Group = Convert.ToInt32(group);
             }
         }
+
         public class Students
         {
             public string Id { get; set; }
@@ -45,12 +47,15 @@ namespace Journal1
                 this.Name = surname.ToString() + " " + name.ToString() + " " + lastname.ToString();
             }
         }
+
         string facultySelected, groupSelected;
         string connectionString;
+
         public StudentsList()
         {
             InitializeComponent();
         }
+
         public void LoadFaculties()
         {
             string sqlExpression = "SELECT * FROM Faculties ORDER BY Факультет";
@@ -76,6 +81,7 @@ namespace Journal1
             }
 
         }
+
         private void facultiesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -149,6 +155,7 @@ namespace Journal1
             }
             catch { }
         }
+
         public void FindDataBase()
         {
             string ds = "";
@@ -178,6 +185,7 @@ namespace Journal1
             else
                 connectionString = String.Format(@"Data Source={0};Initial Catalog={1};Integrated Security={2}", ds, ic, ins);
         }
+
         private void StudentsList_Load(object sender, EventArgs e)
         {
             FindDataBase();

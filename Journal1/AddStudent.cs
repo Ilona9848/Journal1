@@ -74,8 +74,6 @@ namespace Journal1
         private void AddStudent_Load(object sender, EventArgs e)
         {
             FindDataBase();
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "journalDataDataSet.Groups". При необходимости она может быть перемещена или удалена.
-            this.groupsTableAdapter.Fill(this.journalDataDataSet.Groups);
             LoadFaculties();
             try
             {
@@ -123,6 +121,7 @@ namespace Journal1
                 MessageBox.Show("Заполните все поля");
             }
         }
+
         public void LoadFaculties()
         {
             string sqlExpression = "SELECT * FROM Faculties ORDER BY Факультет";

@@ -52,6 +52,7 @@ namespace Journal1
         string connectionString;
         List<Faculties> listFaculties = new List<Faculties>();
         List<Groups> listGroups = new List<Groups>();
+
         public ChangeFaculty()
         {
             InitializeComponent();
@@ -296,8 +297,6 @@ namespace Journal1
 
             }
         }
-
-        
 
         public void LoadStudent()
         {

@@ -132,7 +132,7 @@
             this.buttonAddFaculty.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAddFaculty.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAddFaculty.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonAddFaculty.Location = new System.Drawing.Point(0, 356);
+            this.buttonAddFaculty.Location = new System.Drawing.Point(16, 356);
             this.buttonAddFaculty.Name = "buttonAddFaculty";
             this.buttonAddFaculty.Size = new System.Drawing.Size(218, 40);
             this.buttonAddFaculty.TabIndex = 14;
@@ -144,7 +144,7 @@
             // 
             this.labelInstr3.AutoSize = true;
             this.labelInstr3.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstr3.Location = new System.Drawing.Point(-4, 319);
+            this.labelInstr3.Location = new System.Drawing.Point(12, 320);
             this.labelInstr3.Name = "labelInstr3";
             this.labelInstr3.Size = new System.Drawing.Size(560, 23);
             this.labelInstr3.TabIndex = 15;
